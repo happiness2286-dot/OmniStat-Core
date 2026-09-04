@@ -1,7 +1,7 @@
 {
   "metadata": {
     "system_name": "OmniStat Core Quantitative Engine",
-    "last_updated": "2026-09-04 23:24:06",
+    "last_updated": "2026-09-04 23:31:17",
     "total_records_analyzed": 243,
     "latest_draw": {
       "stt": 243,
@@ -1015,26 +1015,26 @@
           "title": "Lựa chọn C: ĐÁNH GIAO THOA TIẾT KIỆM VỐN",
           "desc": "Tập hợp các con số giao thoa giữa N1 và Top 20.",
           "numbers": [
-            "44",
-            "78",
+            "83",
             "42",
-            "21",
-            "17",
-            "68",
-            "26",
             "45",
-            "80",
-            "13",
             "91",
-            "43",
-            "37",
-            "72",
-            "57",
-            "38",
-            "61",
-            "96",
+            "78",
             "18",
-            "83"
+            "38",
+            "68",
+            "37",
+            "96",
+            "21",
+            "44",
+            "57",
+            "43",
+            "72",
+            "61",
+            "13",
+            "17",
+            "26",
+            "80"
           ]
         }
       }
