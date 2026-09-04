@@ -43,6 +43,58 @@ body {
     min-height: 100vh;
 }
 
+/* TOAST NOTIFICATION */
+.toast-notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 9999;
+    background: linear-gradient(135deg, #059669, #10b981);
+    color: #ffffff;
+    padding: 12px 20px;
+    border-radius: 10px;
+    font-size: 13px;
+    font-weight: 600;
+    box-shadow: 0 8px 24px rgba(16, 185, 129, 0.4);
+    opacity: 0;
+    transform: translateY(-20px);
+    pointer-events: none;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.toast-notification.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* BUTTON COPY */
+.btn-copy {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    background: linear-gradient(135deg, rgba(56, 189, 248, 0.2), rgba(99, 102, 241, 0.2));
+    border: 1px solid rgba(56, 189, 248, 0.4);
+    border-radius: 8px;
+    color: var(--accent-blue);
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.btn-copy:hover {
+    background: linear-gradient(135deg, #0284c7, #6366f1);
+    color: #ffffff;
+    border-color: transparent;
+    box-shadow: 0 4px 12px rgba(56, 189, 248, 0.3);
+}
+
+.btn-copy:active {
+    transform: scale(0.96);
+}
+
 /* APP HEADER WITH CENTERED TABS */
 .app-header {
     position: sticky;
@@ -358,6 +410,7 @@ body {
 .frame-meta {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     font-size: 12px;
     padding-top: 6px;
     border-top: 1px dashed var(--border-color);
@@ -387,6 +440,13 @@ body {
 .dual-frame-section {
     display: flex;
     flex-direction: column;
+    gap: 16px;
+}
+
+.panel-header-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     gap: 16px;
 }
 
@@ -539,7 +599,6 @@ body {
 .text-accent { color: var(--accent-blue); }
 .text-info { color: var(--accent-indigo); }
 .desktop-only { display: block; }
-.frame-sub-selector { display: none; }
 
 /* MOBILE RESPONSIVE UI (iPhone / Smartphones) */
 @media (max-width: 768px) {
@@ -549,6 +608,12 @@ body {
 
     .app-header {
         padding: 10px 14px;
+    }
+
+    .panel-header-flex {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
     }
 
     .frame-cards-grid, .dual-options-grid {

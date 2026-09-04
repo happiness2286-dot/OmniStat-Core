@@ -12,6 +12,9 @@
 </head>
 <body>
     <div class="app-container">
+        <!-- Toast Notification Popup -->
+        <div id="toast-notification" class="toast-notification">✅ Đã copy dàn số vào bộ nhớ tạm!</div>
+
         <!-- Top App Bar -->
         <header class="app-header">
             <div class="header-inner">
@@ -122,8 +125,8 @@
                 <div class="panel glass frame-section">
                     <div class="panel-header-flex">
                         <div>
-                            <h3>🚀 LỊCH KHUNG NUÔI 3 NGÀY CỤ THỂ (N1 - N2 - N3)</h3>
-                            <p class="section-desc">Mô hình tự động gắn ngày quay cụ thể. Trúng ngày nào ➔ Tự động Reset dàn N1 mới cho ngày hôm sau.</p>
+                            <h3>🚀 LỊCH KHUNG NUÔI 3 NGÀY DỰ BÁO CHO KỲ TỚI</h3>
+                            <p class="section-desc" id="reset-summary-str">Kết quả 04-09-2026 nổ 66 ➔ Tự động Reset dàn N1 mới cho ngày tiếp theo!</p>
                         </div>
                     </div>
 
@@ -131,11 +134,11 @@
                     <div class="rule-banner">
                         <span class="rule-icon">💡</span>
                         <div class="rule-text">
-                            <strong>Quy tắc trúng khung & chuyển ngày:</strong> Nếu <strong>Trúng N1</strong> ngày hôm nay ➔ Kết thúc khung, ngày mai chuyển đánh Dàn N1 MỚI. Nếu <strong>Trượt N1</strong> ➔ Ngày mai chuyển sang Dàn N2 (và tương tự với N3).
+                            <strong>Quy tắc Reset ngày:</strong> Vì kết quả ngày <strong>04-09-2026</strong> đã nổ Đề <strong>66</strong> ➔ Khung trước đã trúng hoàn tất. Dự báo dưới đây tự động chuyển sang <strong>Dàn N1 MỚI</strong> cho kỳ quay tiếp theo (<strong>Thứ Bảy, 05-09-2026</strong>).
                         </div>
                     </div>
 
-                    <!-- Frame Details Grid (3 Cards with Explicit Dates) -->
+                    <!-- Frame Details Grid (3 Cards with Explicit Dates & Copy Buttons) -->
                     <div class="frame-cards-grid">
                         <!-- Card N1 -->
                         <div class="frame-card glass-sub active-frame" id="card-n1">
@@ -144,11 +147,11 @@
                                 <span class="frame-rate text-accent">Trúng 54.62%</span>
                             </div>
                             <div class="date-highlight" id="n1-date-str">📅 Ngày N1: --</div>
-                            <h4>Dàn Gốc Hỏa Lực</h4>
-                            <p class="frame-desc" id="n1-desc-str">Dàn 40 số bắt nhịp từ G7 Top 1-3. Đánh ngày đầu tiên.</p>
+                            <h4>Dàn Mới Cho Kỳ Tới</h4>
+                            <p class="frame-desc" id="n1-desc-str">Dàn 40 số hỏa lực dự đoán cho kỳ quay tiếp theo.</p>
                             <div class="frame-meta">
                                 <span>Số lượng: <strong id="n1-count">40 số</strong></span>
-                                <span>Tỷ lệ vốn: <strong class="text-accent">1.0x (Ví dụ: 100k)</strong></span>
+                                <button class="btn-copy" id="btn-copy-n1">📋 Copy Dàn N1</button>
                             </div>
                             <div class="number-pills-mini" id="n1-numbers-container">
                                 <!-- Rendered by JS -->
@@ -162,11 +165,11 @@
                                 <span class="frame-rate text-success">Trúng 72.50%</span>
                             </div>
                             <div class="date-highlight" id="n2-date-str">📅 Ngày N2: --</div>
-                            <h4>Dàn Siêu Lọc 36 Số</h4>
+                            <h4>Dàn Dự Phòng Ngày 2</h4>
                             <p class="frame-desc" id="n2-desc-str">Đánh khi N1 trượt. Gấp thếp vốn N2.</p>
                             <div class="frame-meta">
                                 <span>Số lượng: <strong id="n2-count">36 số</strong></span>
-                                <span>Tỷ lệ vốn: <strong class="text-warning">2.2x (Ví dụ: 220k)</strong></span>
+                                <button class="btn-copy" id="btn-copy-n2">📋 Copy Dàn N2</button>
                             </div>
                             <div class="number-pills-mini" id="n2-numbers-container">
                                 <!-- Rendered by JS -->
@@ -180,11 +183,11 @@
                                 <span class="frame-rate text-success">Trúng 87.50%</span>
                             </div>
                             <div class="date-highlight" id="n3-date-str">📅 Ngày N3: --</div>
-                            <h4>Dàn Max Khung 36 Số</h4>
+                            <h4>Dàn Max Khung Ngày 3</h4>
                             <p class="frame-desc" id="n3-desc-str">Đánh khi N1 và N2 trượt. Chốt Max Khung.</p>
                             <div class="frame-meta">
                                 <span>Số lượng: <strong id="n3-count">36 số</strong></span>
-                                <span>Tỷ lệ vốn: <strong class="text-danger">4.8x (Ví dụ: 480k)</strong></span>
+                                <button class="btn-copy" id="btn-copy-n3">📋 Copy Dàn N3</button>
                             </div>
                             <div class="number-pills-mini" id="n3-numbers-container">
                                 <!-- Rendered by JS -->
@@ -195,32 +198,37 @@
 
                 <!-- DUAL-FRAME GOI DAU MANAGER (BỘ TÙY CHỌN GỐI ĐẦU & NĂM DÀN MỚI NGÀY) -->
                 <div class="panel glass dual-frame-section">
-                    <h3>🔀 BỘ QUẢN LÝ GỐI ĐẦU KHUNG & DÀN MỚI TRONG NGÀY</h3>
-                    <p class="section-desc">Khi bạn đang trôi ở Dàn N2/N3 cũ nhưng ngày hôm nay vẫn ra Dàn N1 MỚI ➔ Hệ thống phân tích 3 phương án để bạn lựa chọn:</p>
+                    <div class="panel-header-flex">
+                        <div>
+                            <h3>🔀 BỘ QUẢN LÝ GỐI ĐẦU KHUNG & DÀN MỚI TRONG NGÀY</h3>
+                            <p class="section-desc">Phương án đánh gối đầu giao thoa giúp tối ưu số lượng con số và tiết kiệm vốn.</p>
+                        </div>
+                        <button class="btn-copy" id="btn-copy-combined">📋 Copy Dàn Giao Thoa</button>
+                    </div>
 
                     <div class="dual-options-grid">
                         <div class="dual-option-card glass-sub">
                             <div class="option-header">
                                 <span class="opt-tag tag-a">Phương Án A</span>
-                                <h4>Tiếp Tục Đánh Dàn N2/N3 Cũ</h4>
+                                <h4>Đánh Dàn N1 MỚI Ngày Tiếp Theo</h4>
                             </div>
-                            <p class="opt-desc">Giữ đúng kỷ luật khung cũ để đảm bảo tỷ lệ trúng 72.5% (N2) hoặc 87.5% (N3).</p>
+                            <p class="opt-desc">Đánh Dàn N1 hỏa lực dự đoán cho kỳ tới.</p>
                         </div>
 
                         <div class="dual-option-card glass-sub">
                             <div class="option-header">
                                 <span class="opt-tag tag-b">Phương Án B</span>
-                                <h4>Bỏ Khung Cũ ➔ Chuyển Dàn N1 Mới</h4>
+                                <h4>Lọc Dàn VIP Top 20 Đồng Thuận</h4>
                             </div>
-                            <p class="opt-desc">Bắt đầu khung mới từ đầu cho ngày hôm nay với dàn 40 số hỏa lực N1 vừa cập nhật.</p>
+                            <p class="opt-desc">Đánh Top 20 số Super-Score có điểm cao nhất.</p>
                         </div>
 
                         <div class="dual-option-card glass-sub featured-opt">
                             <div class="option-header">
                                 <span class="opt-tag tag-c">Phương Án C (Khuyên Dùng)</span>
-                                <h4>ĐÁNH GỐI ĐẦU GIAO THOA (N2/N3 Cũ + N1 Mới)</h4>
+                                <h4>ĐÁNH GIAO THOA TIẾT KIỆM VỐN</h4>
                             </div>
-                            <p class="opt-desc">Lọc tập giao thoa trùng nhau giữa khung cũ và khung mới để tối ưu số lượng con số và tiết kiệm vốn.</p>
+                            <p class="opt-desc">Tập hợp các con số giao thoa giữa N1 và Top 20.</p>
                             <div class="number-pills-mini" id="combined-numbers-container">
                                 <!-- Rendered by JS -->
                             </div>
@@ -230,7 +238,10 @@
 
                 <!-- Live Quick Filter Controls -->
                 <div class="filter-panel glass">
-                    <h3>⚡ Bộ Lọc Trực Tiếp Theo Tổng & Chạm</h3>
+                    <div class="panel-header-flex">
+                        <h3>⚡ Bộ Lọc Trực Tiếp Theo Tổng & Chạm</h3>
+                        <button class="btn-copy" id="btn-copy-filtered">📋 Copy Dàn Số Đã Lọc</button>
+                    </div>
                     <div class="filter-controls">
                         <div class="filter-group">
                             <label for="filter-sum">Lọc Theo Tổng (0-9):</label>
@@ -280,7 +291,10 @@
             <!-- TAB 2: TOP 20 CONSENSUS -->
             <section id="tab-top20" class="tab-page">
                 <div class="panel glass">
-                    <h3>🥇 Bảng Xếp Hạng Top 20 Số Đồng Thuận Super-Score</h3>
+                    <div class="panel-header-flex">
+                        <h3>🥇 Bảng Xếp Hạng Top 20 Số Đồng Thuận Super-Score</h3>
+                        <button class="btn-copy" id="btn-copy-top20">📋 Copy Top 20 Số</button>
+                    </div>
                     <div class="table-responsive">
                         <table class="data-table">
                             <thead>
@@ -306,7 +320,10 @@
             <!-- TAB 3: 3D MATRIX -->
             <section id="tab-matrix3d" class="tab-page">
                 <div class="panel glass">
-                    <h3>🎯 Xếp Hạng Top Ba Càng (3D) Mạnh Nhất</h3>
+                    <div class="panel-header-flex">
+                        <h3>🎯 Xếp Hạng Top Ba Càng (3D) Mạnh Nhất</h3>
+                        <button class="btn-copy" id="btn-copy-3d">📋 Copy Dàn 3D</button>
+                    </div>
                     <div class="table-responsive">
                         <table class="data-table">
                             <thead>

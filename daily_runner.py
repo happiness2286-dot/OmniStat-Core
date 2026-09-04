@@ -3,6 +3,7 @@ import sys
 import io
 import json
 import datetime
+import re
 
 # Fix Windows console encoding
 if hasattr(sys.stdout, 'reconfigure'):
@@ -25,6 +26,23 @@ def format_date_vietnamese(date_obj):
     weekday_str = weekdays[date_obj.weekday()]
     return f"{weekday_str}, {date_obj.strftime('%d-%m-%Y')}"
 
+def parse_record_date(date_str):
+    """Parse date from record string like 'Thứ sáu ngày 04-09-2026' or '2026-09-04'."""
+    if not date_str:
+        return datetime.date.today()
+    
+    match = re.search(r'(\d{1,2})[/-](\d{1,2})[/-](\d{4})', date_str)
+    if match:
+        day, month, year = int(match.group(1)), int(match.group(2)), int(match.group(3))
+        return datetime.date(year, month, day)
+    
+    match_iso = re.search(r'(\d{4})[/-](\d{1,2})[/-](\d{1,2})', date_str)
+    if match_iso:
+        year, month, day = int(match_iso.group(1)), int(match_iso.group(2)), int(match_iso.group(3))
+        return datetime.date(year, month, day)
+
+    return datetime.date.today()
+
 def run_daily_pipeline(excel_path="Thong_Ke_G7_Va_Top20_XSMB_2026.xlsx", output_json="dashboard_data.json"):
     """
     Master Runner executing end-to-end quantitative analytics pipeline:
@@ -32,8 +50,8 @@ def run_daily_pipeline(excel_path="Thong_Ke_G7_Va_Top20_XSMB_2026.xlsx", output_
     2. Validates data integrity.
     3. Runs Analytics Layer (Bridge KNN, Markov Transition, Garbage Elimination).
     4. Runs Risk Layer (Volatility Anomaly, Kelly Staking, Backtest Engine).
-    5. Calculates explicit calendar dates for N1, N2, N3 and Dual-Frame gối đầu manager.
-    6. Exports unified JSON dataset for both root & web_dashboard.
+    5. Calculates NEXT DRAW dates starting AFTER latest recorded draw date.
+    6. Exports unified JSON dataset with Copy support for both root & web_dashboard.
     """
     print("==================================================")
     print(" RUNNING OMNISTAT CORE QUANTITATIVE PIPELINE")
@@ -82,11 +100,16 @@ def run_daily_pipeline(excel_path="Thong_Ke_G7_Va_Top20_XSMB_2026.xlsx", output_
     backtester = BacktestEngine(valid_records)
     backtest_metrics = backtester.run_backtest(40)
 
-    # 4. EXPLICIT DATES & DUAL-FRAME GOI DAU MANAGER (N1, N2, N3)
-    today_date = datetime.date.today()
-    date_n1 = today_date
-    date_n2 = today_date + datetime.timedelta(days=1)
-    date_n3 = today_date + datetime.timedelta(days=2)
+    # 4. CALCULATE DATES FOR NEXT FORECAST DRAW (Starting Day AFTER latest recorded draw)
+    latest_record = valid_records[-1] if valid_records else {}
+    last_draw_date = parse_record_date(latest_record.get("date"))
+
+    # Next draw is the day AFTER last_draw_date
+    next_draw_date = last_draw_date + datetime.timedelta(days=1)
+
+    date_n1 = next_draw_date
+    date_n2 = next_draw_date + datetime.timedelta(days=1)
+    date_n3 = next_draw_date + datetime.timedelta(days=2)
 
     n1_numbers = [item["number"] for item in top40_consensus]
     n2_numbers = [item["number"] for item in top40_consensus if item["g7_valid"]][:36]
@@ -95,55 +118,55 @@ def run_daily_pipeline(excel_path="Thong_Ke_G7_Va_Top20_XSMB_2026.xlsx", output_
 
     n3_numbers = [item["number"] for item in top20_consensus] + [item["number"] for item in top40_consensus[20:36]]
 
-    # Dual-Frame Combined Overlap (Giao thoa giữa N2/N3 đang nuôi và N1 mới ngày hôm nay)
+    # Dual-Frame Combined Overlap
     combined_numbers = list(set(n1_numbers[:20] + n2_numbers[:20]))
 
     frame_3days = {
-        "current_stage": "N1 (Khung Ngày 1)",
-        "reset_rule": "Nếu TRÚNG tại bất kỳ ngày nào ➔ TỰ ĐỘNG RESET CHUYỂN DÀN N1 MỚI CHO NGÀY TIẾP THEO.",
+        "current_stage": f"Dự báo cho kỳ quay mới ({format_date_vietnamese(date_n1)})",
+        "last_draw_summary": f"Kỳ trước ({latest_record.get('date')}) nổ {latest_record.get('gdb')} (Đề {latest_record.get('de_2d')}) ➔ TỰ ĐỘNG RESET BẮT DÀN N1 MỚI CHO NGÀY TIẾP THEO.",
         "dual_frame_support": True,
         "n1": {
-            "title": "Dàn N1 (Ngày 1 - Dàn Gốc Hỏa Lực)",
+            "title": "Dàn N1 (Dàn Mới Cho Kỳ Tiếp Theo)",
             "date": format_date_vietnamese(date_n1),
             "date_short": date_n1.strftime("%d/%m/%Y"),
             "count": len(n1_numbers),
             "win_rate": "54.62%",
             "stake_ratio": "1.0x (Ví dụ: 100k/số)",
-            "description": f"Đánh cho ngày {format_date_vietnamese(date_n1)}. Nếu trúng ➔ Reset chuyển dàn N1 mới cho ngày mai.",
+            "description": f"Dàn N1 MỚI dự đoán cho {format_date_vietnamese(date_n1)}. Do kết quả {latest_record.get('de_2d')} ngày {last_draw_date.strftime('%d/%m/%Y')} đã ra nên khung tự động reset bắt ngày tiếp theo.",
             "numbers": n1_numbers
         },
         "n2": {
-            "title": "Dàn N2 (Ngày 2 - Siêu Lọc 36 Số)",
+            "title": "Dàn N2 (Dự phòng Ngày 2)",
             "date": format_date_vietnamese(date_n2),
             "date_short": date_n2.strftime("%d/%m/%Y"),
             "count": len(n2_numbers),
             "win_rate": "72.50%",
             "stake_ratio": "2.2x (Gấp thếp: 220k/số)",
-            "description": f"Đánh cho ngày {format_date_vietnamese(date_n2)} (nếu ngày N1 trượt).",
+            "description": f"Dự phòng cho {format_date_vietnamese(date_n2)} nếu ngày N1 trượt.",
             "numbers": n2_numbers
         },
         "n3": {
-            "title": "Dàn N3 (Ngày 3 - Max Khung 36 Số)",
+            "title": "Dàn N3 (Dự phòng Ngày 3 - Max Khung)",
             "date": format_date_vietnamese(date_n3),
             "date_short": date_n3.strftime("%d/%m/%Y"),
             "count": len(n3_numbers),
             "win_rate": "87.50%",
             "stake_ratio": "4.8x (Gấp thếp: 480k/số)",
-            "description": f"Đánh cho ngày {format_date_vietnamese(date_n3)} (nếu cả N1 và N2 trượt). Chốt khung nuôi.",
+            "description": f"Dự phòng cho {format_date_vietnamese(date_n3)} nếu cả N1 và N2 trượt. Max Khung.",
             "numbers": n3_numbers
         },
         "dual_frame_options": {
             "option_continue_old": {
-                "title": "Lựa chọn A: Tiếp tục đánh Dàn N2/N3 cũ đang nuôi",
-                "desc": "Ưu tiên hoàn thành khung nuôi cũ để đảm bảo tỷ lệ trúng 72.5% - 87.5%."
+                "title": "Lựa chọn A: Đánh Dàn N1 MỚI ngày tiếp theo",
+                "desc": f"Đánh Dàn N1 mới cho ngày {format_date_vietnamese(date_n1)}."
             },
             "option_start_new_n1": {
-                "title": "Lựa chọn B: Bỏ khung cũ ➔ Đánh Dàn N1 MỚI ngày hôm nay",
-                "desc": f"Bắt đầu khung mới N1 ngày {format_date_vietnamese(date_n1)} từ đầu."
+                "title": "Lựa chọn B: Lọc Dàn VIP Top 20 Đồng Thuận",
+                "desc": "Đánh Top 20 số Super-Score có điểm tín hiệu cao nhất."
             },
             "option_combined": {
-                "title": "Lựa chọn C: ĐÁNH GỐI ĐẦU (Giao Thoa N2/N3 cũ + N1 mới)",
-                "desc": "Tối ưu số lượng con số giao thoa giữa khung cũ và khung mới để tiết kiệm tiền vốn.",
+                "title": "Lựa chọn C: ĐÁNH GIAO THOA TIẾT KIỆM VỐN",
+                "desc": "Tập hợp các con số giao thoa giữa N1 và Top 20.",
                 "numbers": combined_numbers
             }
         }
@@ -164,14 +187,13 @@ def run_daily_pipeline(excel_path="Thong_Ke_G7_Va_Top20_XSMB_2026.xlsx", output_
             })
 
     # 5. DASHBOARD JSON EXPORT (Save to root & web_dashboard)
-    latest_draw = valid_records[-1] if valid_records else {}
-    
     dashboard_data = {
         "metadata": {
             "system_name": "OmniStat Core Quantitative Engine",
             "last_updated": datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
             "total_records_analyzed": len(valid_records),
-            "latest_draw": latest_draw
+            "latest_draw": latest_record,
+            "next_forecast_date": format_date_vietnamese(date_n1)
         },
         "analytics": {
             "top20_consensus": top20_consensus,
@@ -202,7 +224,7 @@ def run_daily_pipeline(excel_path="Thong_Ke_G7_Va_Top20_XSMB_2026.xlsx", output_
     with open("web_dashboard/dashboard_data.json", "w", encoding="utf-8") as f:
         json.dump(dashboard_data, f, ensure_ascii=False, indent=2)
 
-    print(f"[Execution Layer] Successfully generated Web Dashboard JSON dataset with explicit dates & dual frame options -> dashboard_data.json")
+    print(f"[Execution Layer] Successfully generated Web Dashboard JSON dataset for NEXT DRAW ({format_date_vietnamese(date_n1)}) -> dashboard_data.json")
     print("==================================================")
     return dashboard_data
 

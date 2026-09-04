@@ -1,7 +1,7 @@
 {
   "metadata": {
     "system_name": "OmniStat Core Quantitative Engine",
-    "last_updated": "2026-09-04 23:17:34",
+    "last_updated": "2026-09-04 23:24:06",
     "total_records_analyzed": 243,
     "latest_draw": {
       "stt": 243,
@@ -15,7 +15,8 @@
       "g7_2": "14",
       "g7_3": "74",
       "g7_4": "88"
-    }
+    },
+    "next_forecast_date": "Thứ Bảy, 05-09-2026"
   },
   "analytics": {
     "top20_consensus": [
@@ -853,17 +854,17 @@
       }
     },
     "frame_3days": {
-      "current_stage": "N1 (Khung Ngày 1)",
-      "reset_rule": "Nếu TRÚNG tại bất kỳ ngày nào ➔ TỰ ĐỘNG RESET CHUYỂN DÀN N1 MỚI CHO NGÀY TIẾP THEO.",
+      "current_stage": "Dự báo cho kỳ quay mới (Thứ Bảy, 05-09-2026)",
+      "last_draw_summary": "Kỳ trước (Thứ sáu ngày 04-09-2026) nổ 50066 (Đề 66) ➔ TỰ ĐỘNG RESET BẮT DÀN N1 MỚI CHO NGÀY TIẾP THEO.",
       "dual_frame_support": true,
       "n1": {
-        "title": "Dàn N1 (Ngày 1 - Dàn Gốc Hỏa Lực)",
-        "date": "Thứ Sáu, 04-09-2026",
-        "date_short": "04/09/2026",
+        "title": "Dàn N1 (Dàn Mới Cho Kỳ Tiếp Theo)",
+        "date": "Thứ Bảy, 05-09-2026",
+        "date_short": "05/09/2026",
         "count": 40,
         "win_rate": "54.62%",
         "stake_ratio": "1.0x (Ví dụ: 100k/số)",
-        "description": "Đánh cho ngày Thứ Sáu, 04-09-2026. Nếu trúng ➔ Reset chuyển dàn N1 mới cho ngày mai.",
+        "description": "Dàn N1 MỚI dự đoán cho Thứ Bảy, 05-09-2026. Do kết quả 66 ngày 04/09/2026 đã ra nên khung tự động reset bắt ngày tiếp theo.",
         "numbers": [
           "38",
           "83",
@@ -908,13 +909,13 @@
         ]
       },
       "n2": {
-        "title": "Dàn N2 (Ngày 2 - Siêu Lọc 36 Số)",
-        "date": "Thứ Bảy, 05-09-2026",
-        "date_short": "05/09/2026",
+        "title": "Dàn N2 (Dự phòng Ngày 2)",
+        "date": "Chủ Nhật, 06-09-2026",
+        "date_short": "06/09/2026",
         "count": 36,
         "win_rate": "72.50%",
         "stake_ratio": "2.2x (Gấp thếp: 220k/số)",
-        "description": "Đánh cho ngày Thứ Bảy, 05-09-2026 (nếu ngày N1 trượt).",
+        "description": "Dự phòng cho Chủ Nhật, 06-09-2026 nếu ngày N1 trượt.",
         "numbers": [
           "38",
           "83",
@@ -955,13 +956,13 @@
         ]
       },
       "n3": {
-        "title": "Dàn N3 (Ngày 3 - Max Khung 36 Số)",
-        "date": "Chủ Nhật, 06-09-2026",
-        "date_short": "06/09/2026",
+        "title": "Dàn N3 (Dự phòng Ngày 3 - Max Khung)",
+        "date": "Thứ Hai, 07-09-2026",
+        "date_short": "07/09/2026",
         "count": 36,
         "win_rate": "87.50%",
         "stake_ratio": "4.8x (Gấp thếp: 480k/số)",
-        "description": "Đánh cho ngày Chủ Nhật, 06-09-2026 (nếu cả N1 và N2 trượt). Chốt khung nuôi.",
+        "description": "Dự phòng cho Thứ Hai, 07-09-2026 nếu cả N1 và N2 trượt. Max Khung.",
         "numbers": [
           "38",
           "83",
@@ -1003,37 +1004,37 @@
       },
       "dual_frame_options": {
         "option_continue_old": {
-          "title": "Lựa chọn A: Tiếp tục đánh Dàn N2/N3 cũ đang nuôi",
-          "desc": "Ưu tiên hoàn thành khung nuôi cũ để đảm bảo tỷ lệ trúng 72.5% - 87.5%."
+          "title": "Lựa chọn A: Đánh Dàn N1 MỚI ngày tiếp theo",
+          "desc": "Đánh Dàn N1 mới cho ngày Thứ Bảy, 05-09-2026."
         },
         "option_start_new_n1": {
-          "title": "Lựa chọn B: Bỏ khung cũ ➔ Đánh Dàn N1 MỚI ngày hôm nay",
-          "desc": "Bắt đầu khung mới N1 ngày Thứ Sáu, 04-09-2026 từ đầu."
+          "title": "Lựa chọn B: Lọc Dàn VIP Top 20 Đồng Thuận",
+          "desc": "Đánh Top 20 số Super-Score có điểm tín hiệu cao nhất."
         },
         "option_combined": {
-          "title": "Lựa chọn C: ĐÁNH GỐI ĐẦU (Giao Thoa N2/N3 cũ + N1 mới)",
-          "desc": "Tối ưu số lượng con số giao thoa giữa khung cũ và khung mới để tiết kiệm tiền vốn.",
+          "title": "Lựa chọn C: ĐÁNH GIAO THOA TIẾT KIỆM VỐN",
+          "desc": "Tập hợp các con số giao thoa giữa N1 và Top 20.",
           "numbers": [
-            "57",
-            "68",
             "44",
-            "96",
-            "26",
-            "83",
+            "78",
             "42",
-            "37",
-            "13",
             "21",
-            "18",
-            "91",
             "17",
-            "38",
-            "43",
-            "72",
-            "80",
-            "61",
+            "68",
+            "26",
             "45",
-            "78"
+            "80",
+            "13",
+            "91",
+            "43",
+            "37",
+            "72",
+            "57",
+            "38",
+            "61",
+            "96",
+            "18",
+            "83"
           ]
         }
       }
