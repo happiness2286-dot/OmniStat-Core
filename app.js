@@ -1,8 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
     let globalData = null;
 
-    // Tab Navigation Switcher
-    const navItems = document.querySelectorAll(".nav-item");
+    // Tab Navigation Switcher (Centered Top Header / Mobile Bottom Bar)
+    const navTabs = document.querySelectorAll(".nav-tab");
     const tabPages = document.querySelectorAll(".tab-page");
     const pageTitle = document.getElementById("page-title");
 
@@ -14,19 +14,25 @@ document.addEventListener("DOMContentLoaded", () => {
         "tab-elimination": "Bộ Lọc Loại Trừ Số Rác & Cảnh Báo Risk"
     };
 
-    navItems.forEach(item => {
+    navTabs.forEach(item => {
         item.addEventListener("click", () => {
             const targetTab = item.getAttribute("data-tab");
 
-            navItems.forEach(i => i.classList.remove("active"));
+            navTabs.forEach(i => i.classList.remove("active"));
             tabPages.forEach(p => p.classList.remove("active"));
 
             item.classList.add("active");
-            document.getElementById(targetTab).classList.add("active");
+            const activePage = document.getElementById(targetTab);
+            if (activePage) {
+                activePage.classList.add("active");
+            }
 
             if (tabTitles[targetTab]) {
                 pageTitle.textContent = tabTitles[targetTab];
             }
+
+            // Scroll top smoothly on mobile switch
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         });
     });
 
@@ -48,7 +54,6 @@ document.addEventListener("DOMContentLoaded", () => {
         const risk = data.risk_and_finance || {};
 
         // Render Metadata
-        document.getElementById("last-update-time").textContent = `Cập nhật: ${meta.last_updated || '--'}`;
         if (meta.latest_draw) {
             document.getElementById("latest-draw-info").textContent = 
                 `Kỳ quay: ${meta.latest_draw.date} | GĐB: ${meta.latest_draw.gdb} (Đề ${meta.latest_draw.de_2d})`;
@@ -77,70 +82,80 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // Render Top 20 Table
         const top20Body = document.getElementById("top20-table-body");
-        top20Body.innerHTML = "";
-        (analytics.top20_consensus || []).forEach((item, index) => {
-            const tr = document.createElement("tr");
-            tr.innerHTML = `
-                <td>Top ${String(index + 1).padStart(2, '0')}</td>
-                <td><strong class="text-accent">${item.number}</strong></td>
-                <td>Tổng ${item.sum}</td>
-                <td>${item.gan_days} ngày</td>
-                <td>${item.f30} lần</td>
-                <td>${item.f60} lần</td>
-                <td><strong>${item.super_score}</strong></td>
-                <td>${item.g7_valid ? '<span class="text-success">CÓ</span>' : '<span class="text-danger">KHÔNG</span>'}</td>
-            `;
-            top20Body.appendChild(tr);
-        });
+        if (top20Body) {
+            top20Body.innerHTML = "";
+            (analytics.top20_consensus || []).forEach((item, index) => {
+                const tr = document.createElement("tr");
+                tr.innerHTML = `
+                    <td>Top ${String(index + 1).padStart(2, '0')}</td>
+                    <td><strong class="text-accent">${item.number}</strong></td>
+                    <td>Tổng ${item.sum}</td>
+                    <td>${item.gan_days}N</td>
+                    <td>${item.f30}L</td>
+                    <td>${item.f60}L</td>
+                    <td><strong>${item.super_score}</strong></td>
+                    <td>${item.g7_valid ? '<span class="text-success">CÓ</span>' : '<span class="text-danger">KHÔNG</span>'}</td>
+                `;
+                top20Body.appendChild(tr);
+            });
+        }
 
         // Render 3D Matrix Table
         const matrixBody = document.getElementById("matrix3d-table-body");
-        matrixBody.innerHTML = "";
-        (analytics.top_3d || []).forEach((item, index) => {
-            const tr = document.createElement("tr");
-            tr.innerHTML = `
-                <td>Top ${String(index + 1).padStart(2, '0')}</td>
-                <td>${item.cang}</td>
-                <td><strong class="text-accent">${item.number_3d}</strong></td>
-                <td>${item.base_2d}</td>
-                <td>${item.consensus_score}</td>
-                <td><span class="text-success">${item.classification}</span></td>
-            `;
-            matrixBody.appendChild(tr);
-        });
+        if (matrixBody) {
+            matrixBody.innerHTML = "";
+            (analytics.top_3d || []).forEach((item, index) => {
+                const tr = document.createElement("tr");
+                tr.innerHTML = `
+                    <td>Top ${String(index + 1).padStart(2, '0')}</td>
+                    <td>${item.cang}</td>
+                    <td><strong class="text-accent">${item.number_3d}</strong></td>
+                    <td>${item.base_2d}</td>
+                    <td>${item.consensus_score}</td>
+                    <td><span class="text-success">${item.classification}</span></td>
+                `;
+                matrixBody.appendChild(tr);
+            });
+        }
 
         // Render Backtest & Kelly Lists
         const backtestList = document.getElementById("backtest-info-list");
-        backtestList.innerHTML = `
-            <li><span>Tổng số ngày thử nghiệm:</span> <strong>${bt.total_days_tested || 0} ngày</strong></li>
-            <li><span>Tỷ lệ trúng Khung 1 Ngày (N1):</span> <strong class="text-accent">${bt.n1_win_rate || 0}%</strong></li>
-            <li><span>Tỷ lệ trúng Khung 2 Ngày (N2):</span> <strong class="text-success">${bt.n2_win_rate_estimate || 0}%</strong></li>
-            <li><span>Tỷ lệ trúng Khung 3 Ngày (N3 Max):</span> <strong class="text-success">${bt.n3_win_rate_estimate || 0}%</strong></li>
-            <li><span>Max Drawdown (Vốn sụt giảm tối đa):</span> <strong class="text-warning">${bt.max_drawdown_percent || 0}%</strong></li>
-            <li><span>Chỉ số Sharpe (Sharpe Ratio):</span> <strong>${bt.sharpe_ratio || 0}</strong></li>
-            <li><span>Vốn ban đầu / Vốn hiện tại:</span> <strong>10,000,000 / ${(bt.final_bankroll || 10000000).toLocaleString()} VNĐ</strong></li>
-        `;
+        if (backtestList) {
+            backtestList.innerHTML = `
+                <li><span>Tổng số ngày thử nghiệm:</span> <strong>${bt.total_days_tested || 0} ngày</strong></li>
+                <li><span>Tỷ lệ trúng Khung 1 Ngày (N1):</span> <strong class="text-accent">${bt.n1_win_rate || 0}%</strong></li>
+                <li><span>Tỷ lệ trúng Khung 2 Ngày (N2):</span> <strong class="text-success">${bt.n2_win_rate_estimate || 0}%</strong></li>
+                <li><span>Tỷ lệ trúng Khung 3 Ngày (N3 Max):</span> <strong class="text-success">${bt.n3_win_rate_estimate || 0}%</strong></li>
+                <li><span>Max Drawdown (Sụt giảm vốn tối đa):</span> <strong class="text-warning">${bt.max_drawdown_percent || 0}%</strong></li>
+                <li><span>Chỉ số Sharpe (Sharpe Ratio):</span> <strong>${bt.sharpe_ratio || 0}</strong></li>
+                <li><span>Vốn ban đầu / Vốn hiện tại:</span> <strong>10,000,000 / ${(bt.final_bankroll || 10000000).toLocaleString()} VNĐ</strong></li>
+            `;
+        }
 
         const kellyList = document.getElementById("kelly-info-list");
-        kellyList.innerHTML = `
-            <li><span>Tổng ngân sách khả dụng:</span> <strong>${(kelly.bankroll || 10000000).toLocaleString()} VNĐ</strong></li>
-            <li><span>Giai đoạn khung nuôi:</span> <strong class="text-accent">${kelly.frame_stage || 'N1'}</strong></li>
-            <li><span>Tỷ lệ phân bổ ngân sách:</span> <strong class="text-success">${kelly.recommended_percent || 0}%</strong></li>
-            <li><span>Số tiền đặt cược khuyến nghị:</span> <strong class="text-accent">${(kelly.recommended_stake_vnd || 0).toLocaleString()} VNĐ</strong></li>
-            <li><span>Đánh giá độ rủi ro:</span> <strong class="${kelly.risk_level === 'LOW' ? 'text-success' : 'text-warning'}">${kelly.risk_level || 'LOW'}</strong></li>
-        `;
+        if (kellyList) {
+            kellyList.innerHTML = `
+                <li><span>Tổng ngân sách khả dụng:</span> <strong>${(kelly.bankroll || 10000000).toLocaleString()} VNĐ</strong></li>
+                <li><span>Giai đoạn khung nuôi:</span> <strong class="text-accent">${kelly.frame_stage || 'N1'}</strong></li>
+                <li><span>Tỷ lệ phân bổ ngân sách:</span> <strong class="text-success">${kelly.recommended_percent || 0}%</strong></li>
+                <li><span>Số tiền đặt cược khuyến nghị:</span> <strong class="text-accent">${(kelly.recommended_stake_vnd || 0).toLocaleString()} VNĐ</strong></li>
+                <li><span>Đánh giá độ rủi ro:</span> <strong class="${kelly.risk_level === 'LOW' ? 'text-success' : 'text-warning'}">${kelly.risk_level || 'LOW'}</strong></li>
+            `;
+        }
 
         // Render Elimination Table
         const elimBody = document.getElementById("elim-table-body");
-        elimBody.innerHTML = "";
-        (elim.eliminated_sample || []).forEach(item => {
-            const tr = document.createElement("tr");
-            tr.innerHTML = `
-                <td><strong class="text-danger">${item[0]}</strong></td>
-                <td>${item[1]}</td>
-            `;
-            elimBody.appendChild(tr);
-        });
+        if (elimBody) {
+            elimBody.innerHTML = "";
+            (elim.eliminated_sample || []).forEach(item => {
+                const tr = document.createElement("tr");
+                tr.innerHTML = `
+                    <td><strong class="text-danger">${item[0]}</strong></td>
+                    <td>${item[1]}</td>
+                `;
+                elimBody.appendChild(tr);
+            });
+        }
 
         // Initialize Live Filter Controls
         setupFilters(analytics.top40_consensus || []);
@@ -150,6 +165,8 @@ document.addEventListener("DOMContentLoaded", () => {
         const sumSelect = document.getElementById("filter-sum");
         const touchSelect = document.getElementById("filter-touch");
         const container = document.getElementById("filtered-numbers-container");
+
+        if (!sumSelect || !touchSelect || !container) return;
 
         function applyFilter() {
             const selSum = sumSelect.value;

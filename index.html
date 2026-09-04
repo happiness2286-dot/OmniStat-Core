@@ -2,55 +2,62 @@
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="theme-color" content="#0b0f19">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <title>OmniStat Core | Quantitative Analytics & Forecast System</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="app-container">
-        <!-- Sidebar Navigation -->
-        <aside class="sidebar">
-            <div class="brand">
-                <div class="logo-icon">⚡</div>
-                <div class="brand-text">
-                    <h2>OmniStat <span>Core</span></h2>
-                    <p>Quantitative AI System</p>
+        <!-- Top App Bar -->
+        <header class="app-header">
+            <div class="header-inner">
+                <!-- Brand Logo Left -->
+                <div class="brand">
+                    <div class="logo-icon">⚡</div>
+                    <div class="brand-text">
+                        <h2>OmniStat <span>Core</span></h2>
+                        <p class="desktop-only">Quantitative AI System</p>
+                    </div>
+                </div>
+
+                <!-- CENTERED NAVIGATION TABS -->
+                <nav class="nav-tabs-centered" id="nav-tabs">
+                    <button class="nav-tab active" data-tab="tab-overview">
+                        <span class="icon">📊</span> <span class="tab-label">Tổng Quan</span>
+                    </button>
+                    <button class="nav-tab" data-tab="tab-top20">
+                        <span class="icon">🥇</span> <span class="tab-label">Top 20 Số</span>
+                    </button>
+                    <button class="nav-tab" data-tab="tab-matrix3d">
+                        <span class="icon">🎯</span> <span class="tab-label">Ba Càng 3D</span>
+                    </button>
+                    <button class="nav-tab" data-tab="tab-backtest">
+                        <span class="icon">📈</span> <span class="tab-label">Backtest & Vốn</span>
+                    </button>
+                    <button class="nav-tab" data-tab="tab-elimination">
+                        <span class="icon">🛡️</span> <span class="tab-label">Bộ Lọc Rác</span>
+                    </button>
+                </nav>
+
+                <!-- System Status Right -->
+                <div class="system-status">
+                    <div class="status-indicator live"></div>
+                    <div class="status-info desktop-only">
+                        <span class="label">Hệ Thống</span>
+                        <strong id="sys-status-text">LIVE</strong>
+                    </div>
                 </div>
             </div>
-            
-            <nav class="nav-menu">
-                <button class="nav-item active" data-tab="tab-overview">
-                    <span class="icon">📊</span> Tổng Quan Dự Báo
-                </button>
-                <button class="nav-item" data-tab="tab-top20">
-                    <span class="icon">🥇</span> Top 20 Đồng Thuận
-                </button>
-                <button class="nav-item" data-tab="tab-matrix3d">
-                    <span class="icon">🎯</span> Ba Càng (3D) & Cầu
-                </button>
-                <button class="nav-item" data-tab="tab-backtest">
-                    <span class="icon">📈</span> Backtest & Quản Lý Vốn
-                </button>
-                <button class="nav-item" data-tab="tab-elimination">
-                    <span class="icon">🛡️</span> Lọc Loại Trừ & Rủi Ro
-                </button>
-            </nav>
+        </header>
 
-            <div class="system-status-card">
-                <div class="status-indicator live"></div>
-                <div class="status-info">
-                    <span class="label">Trạng Thái Hệ Thống</span>
-                    <strong id="sys-status-text">Đang Hoạt Động (Live)</strong>
-                    <small id="last-update-time">Cập nhật: --:--:--</small>
-                </div>
-            </div>
-        </aside>
-
-        <!-- Main Content Area -->
+        <!-- Main Workspace -->
         <main class="main-content">
-            <!-- Top Header -->
-            <header class="top-header">
+            <!-- Sub Header Title & Badges -->
+            <div class="sub-header-bar">
                 <div class="header-title">
                     <h1 id="page-title">Tổng Quan Phân Tích Định Lượng XSMB</h1>
                     <p class="subtitle" id="latest-draw-info">Dữ liệu kết quả quay thưởng mới nhất: --</p>
@@ -58,7 +65,7 @@
 
                 <div class="header-stats">
                     <div class="stat-badge">
-                        <span class="badge-label">Tỷ Lệ Trúng K3N</span>
+                        <span class="badge-label">Trúng K3N</span>
                         <strong class="badge-val text-success" id="k3n-rate">87.5%</strong>
                     </div>
                     <div class="stat-badge">
@@ -66,11 +73,11 @@
                         <strong class="badge-val text-warning" id="mdd-val">--%</strong>
                     </div>
                     <div class="stat-badge">
-                        <span class="badge-label">Mức Biến Động</span>
+                        <span class="badge-label">Biến Động</span>
                         <strong class="badge-val text-info" id="vol-status">STABLE</strong>
                     </div>
                 </div>
-            </header>
+            </div>
 
             <!-- TAB 1: OVERVIEW -->
             <section id="tab-overview" class="tab-page active">
@@ -93,7 +100,7 @@
 
                     <div class="metric-card glass">
                         <div class="card-header">
-                            <span>Khuyến Nghị Phân Bổ Vốn (Kelly)</span>
+                            <span>Phân Bổ Vốn Khuyên Dùng (Kelly)</span>
                             <span class="card-icon">💰</span>
                         </div>
                         <div class="metric-value text-accent" id="kelly-stake">-- VNĐ</div>
@@ -112,10 +119,10 @@
 
                 <!-- Live Quick Filter Controls -->
                 <div class="filter-panel glass">
-                    <h3>⚡ Bộ Lọc Trực Tiếp (Live Filter Controls)</h3>
+                    <h3>⚡ Bộ Lọc Trực Tiếp Theo Tổng & Chạm</h3>
                     <div class="filter-controls">
                         <div class="filter-group">
-                            <label for="filter-sum">Chọn Lọc Theo Tổng (0-9):</label>
+                            <label for="filter-sum">Lọc Theo Tổng (0-9):</label>
                             <select id="filter-sum" class="form-control">
                                 <option value="ALL">Tất cả các Tổng</option>
                                 <option value="0">Tổng 0</option>
@@ -132,7 +139,7 @@
                         </div>
 
                         <div class="filter-group">
-                            <label for="filter-touch">Chọn Lọc Theo Chạm (0-9):</label>
+                            <label for="filter-touch">Lọc Theo Chạm (0-9):</label>
                             <select id="filter-touch" class="form-control">
                                 <option value="ALL">Tất cả các Chạm</option>
                                 <option value="0">Chạm 0</option>
@@ -152,7 +159,7 @@
 
                 <!-- Dynamic Filter Results Preview -->
                 <div class="panel glass">
-                    <h3>🔥 Dàn Số Dự Đoán Đã Qua Bộ Lọc</h3>
+                    <h3>🔥 Dàn Số Dự Đoán Thỏa Mãn Bộ Lọc</h3>
                     <div class="number-pills" id="filtered-numbers-container">
                         <!-- Rendered by JS -->
                     </div>
@@ -167,14 +174,14 @@
                         <table class="data-table">
                             <thead>
                                 <tr>
-                                    <th>Thứ Hạng</th>
-                                    <th>Con Số 2D</th>
-                                    <th>Thuộc Tổng</th>
-                                    <th>Nhịp Gan (Ngày)</th>
-                                    <th>TS 30 Ngày</th>
-                                    <th>TS 60 Ngày</th>
-                                    <th>Điểm Super-Score</th>
-                                    <th>Hợp Lệ G7</th>
+                                    <th>Hạng</th>
+                                    <th>Số 2D</th>
+                                    <th>Tổng</th>
+                                    <th>Gan</th>
+                                    <th>30N</th>
+                                    <th>60N</th>
+                                    <th>Super-Score</th>
+                                    <th>G7</th>
                                 </tr>
                             </thead>
                             <tbody id="top20-table-body">
@@ -194,10 +201,10 @@
                             <thead>
                                 <tr>
                                     <th>STT</th>
-                                    <th>Càng Đầu</th>
-                                    <th>Số 3D Dự Đoán</th>
+                                    <th>Càng</th>
+                                    <th>Số 3D</th>
                                     <th>Gốc 2D</th>
-                                    <th>Điểm Đồng Thuận</th>
+                                    <th>Điểm</th>
                                     <th>Phân Loại</th>
                                 </tr>
                             </thead>
