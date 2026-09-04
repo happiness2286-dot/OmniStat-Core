@@ -19,14 +19,14 @@ from risk_layer.anomaly_detector import AnomalyDetector
 from risk_layer.kelly_staking import KellyStakingEngine
 from risk_layer.backtest_engine import BacktestEngine
 
-def run_daily_pipeline(excel_path="Thong_Ke_G7_Va_Top20_XSMB_2026.xlsx", output_json="web_dashboard/dashboard_data.json"):
+def run_daily_pipeline(excel_path="Thong_Ke_G7_Va_Top20_XSMB_2026.xlsx", output_json="dashboard_data.json"):
     """
     Master Runner executing end-to-end quantitative analytics pipeline:
     1. Scrapes / loads XSMB historical & latest data.
     2. Validates data integrity.
     3. Runs Analytics Layer (Bridge KNN, Markov Transition, Garbage Elimination).
     4. Runs Risk Layer (Volatility Anomaly, Kelly Staking, Backtest Engine).
-    5. Exports unified JSON dataset for the Web Dashboard.
+    5. Exports unified JSON dataset for both root & web_dashboard.
     """
     print("==================================================")
     print(" RUNNING OMNISTAT CORE QUANTITATIVE PIPELINE")
@@ -90,9 +90,7 @@ def run_daily_pipeline(excel_path="Thong_Ke_G7_Va_Top20_XSMB_2026.xlsx", output_
                 "classification": "MẠNH"
             })
 
-    # 4. DASHBOARD JSON EXPORT
-    os.makedirs(os.path.dirname(output_json), exist_ok=True)
-
+    # 4. DASHBOARD JSON EXPORT (Save to root & web_dashboard)
     latest_draw = valid_records[-1] if valid_records else {}
     
     dashboard_data = {
@@ -121,10 +119,16 @@ def run_daily_pipeline(excel_path="Thong_Ke_G7_Va_Top20_XSMB_2026.xlsx", output_
         }
     }
 
-    with open(output_json, "w", encoding="utf-8") as f:
+    # Save to root directory
+    with open("dashboard_data.json", "w", encoding="utf-8") as f:
         json.dump(dashboard_data, f, ensure_ascii=False, indent=2)
 
-    print(f"[Execution Layer] Successfully generated Web Dashboard JSON dataset -> {output_json}")
+    # Save to web_dashboard directory
+    os.makedirs("web_dashboard", exist_ok=True)
+    with open("web_dashboard/dashboard_data.json", "w", encoding="utf-8") as f:
+        json.dump(dashboard_data, f, ensure_ascii=False, indent=2)
+
+    print(f"[Execution Layer] Successfully generated Web Dashboard JSON dataset -> dashboard_data.json")
     print("==================================================")
     return dashboard_data
 

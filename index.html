@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OmniStat Core | Quantitative Analytics & Forecast System</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="brand">
+                <div class="logo-icon">⚡</div>
+                <div class="brand-text">
+                    <h2>OmniStat <span>Core</span></h2>
+                    <p>Quantitative AI System</p>
+                </div>
+            </div>
+            
+            <nav class="nav-menu">
+                <button class="nav-item active" data-tab="tab-overview">
+                    <span class="icon">📊</span> Tổng Quan Dự Báo
+                </button>
+                <button class="nav-item" data-tab="tab-top20">
+                    <span class="icon">🥇</span> Top 20 Đồng Thuận
+                </button>
+                <button class="nav-item" data-tab="tab-matrix3d">
+                    <span class="icon">🎯</span> Ba Càng (3D) & Cầu
+                </button>
+                <button class="nav-item" data-tab="tab-backtest">
+                    <span class="icon">📈</span> Backtest & Quản Lý Vốn
+                </button>
+                <button class="nav-item" data-tab="tab-elimination">
+                    <span class="icon">🛡️</span> Lọc Loại Trừ & Rủi Ro
+                </button>
+            </nav>
+
+            <div class="system-status-card">
+                <div class="status-indicator live"></div>
+                <div class="status-info">
+                    <span class="label">Trạng Thái Hệ Thống</span>
+                    <strong id="sys-status-text">Đang Hoạt Động (Live)</strong>
+                    <small id="last-update-time">Cập nhật: --:--:--</small>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <!-- Top Header -->
+            <header class="top-header">
+                <div class="header-title">
+                    <h1 id="page-title">Tổng Quan Phân Tích Định Lượng XSMB</h1>
+                    <p class="subtitle" id="latest-draw-info">Dữ liệu kết quả quay thưởng mới nhất: --</p>
+                </div>
+
+                <div class="header-stats">
+                    <div class="stat-badge">
+                        <span class="badge-label">Tỷ Lệ Trúng K3N</span>
+                        <strong class="badge-val text-success" id="k3n-rate">87.5%</strong>
+                    </div>
+                    <div class="stat-badge">
+                        <span class="badge-label">Max Drawdown</span>
+                        <strong class="badge-val text-warning" id="mdd-val">--%</strong>
+                    </div>
+                    <div class="stat-badge">
+                        <span class="badge-label">Mức Biến Động</span>
+                        <strong class="badge-val text-info" id="vol-status">STABLE</strong>
+                    </div>
+                </div>
+            </header>
+
+            <!-- TAB 1: OVERVIEW -->
+            <section id="tab-overview" class="tab-page active">
+                <div class="metrics-grid">
+                    <div class="metric-card glass">
+                        <div class="card-header">
+                            <span>Top 3 Đầu Tiềm Năng (Markov)</span>
+                            <span class="card-icon">🎲</span>
+                        </div>
+                        <div class="metric-value" id="markov-heads">--</div>
+                    </div>
+
+                    <div class="metric-card glass">
+                        <div class="card-header">
+                            <span>Top 3 Đuôi Tiềm Năng (Markov)</span>
+                            <span class="card-icon">🎯</span>
+                        </div>
+                        <div class="metric-value" id="markov-tails">--</div>
+                    </div>
+
+                    <div class="metric-card glass">
+                        <div class="card-header">
+                            <span>Khuyến Nghị Phân Bổ Vốn (Kelly)</span>
+                            <span class="card-icon">💰</span>
+                        </div>
+                        <div class="metric-value text-accent" id="kelly-stake">-- VNĐ</div>
+                        <small id="kelly-percent">Tỷ lệ: --% ngân sách</small>
+                    </div>
+
+                    <div class="metric-card glass">
+                        <div class="card-header">
+                            <span>Số Lượng Con Số Đã Loại Trừ</span>
+                            <span class="card-icon">🧹</span>
+                        </div>
+                        <div class="metric-value text-danger" id="elim-count">-- số</div>
+                        <small>Màng lọc rác đa nhân tố</small>
+                    </div>
+                </div>
+
+                <!-- Live Quick Filter Controls -->
+                <div class="filter-panel glass">
+                    <h3>⚡ Bộ Lọc Trực Tiếp (Live Filter Controls)</h3>
+                    <div class="filter-controls">
+                        <div class="filter-group">
+                            <label for="filter-sum">Chọn Lọc Theo Tổng (0-9):</label>
+                            <select id="filter-sum" class="form-control">
+                                <option value="ALL">Tất cả các Tổng</option>
+                                <option value="0">Tổng 0</option>
+                                <option value="1">Tổng 1</option>
+                                <option value="2">Tổng 2</option>
+                                <option value="3">Tổng 3</option>
+                                <option value="4">Tổng 4</option>
+                                <option value="5">Tổng 5</option>
+                                <option value="6">Tổng 6</option>
+                                <option value="7">Tổng 7</option>
+                                <option value="8">Tổng 8</option>
+                                <option value="9">Tổng 9</option>
+                            </select>
+                        </div>
+
+                        <div class="filter-group">
+                            <label for="filter-touch">Chọn Lọc Theo Chạm (0-9):</label>
+                            <select id="filter-touch" class="form-control">
+                                <option value="ALL">Tất cả các Chạm</option>
+                                <option value="0">Chạm 0</option>
+                                <option value="1">Chạm 1</option>
+                                <option value="2">Chạm 2</option>
+                                <option value="3">Chạm 3</option>
+                                <option value="4">Chạm 4</option>
+                                <option value="5">Chạm 5</option>
+                                <option value="6">Chạm 6</option>
+                                <option value="7">Chạm 7</option>
+                                <option value="8">Chạm 8</option>
+                                <option value="9">Chạm 9</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dynamic Filter Results Preview -->
+                <div class="panel glass">
+                    <h3>🔥 Dàn Số Dự Đoán Đã Qua Bộ Lọc</h3>
+                    <div class="number-pills" id="filtered-numbers-container">
+                        <!-- Rendered by JS -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- TAB 2: TOP 20 CONSENSUS -->
+            <section id="tab-top20" class="tab-page">
+                <div class="panel glass">
+                    <h3>🥇 Bảng Xếp Hạng Top 20 Số Đồng Thuận Super-Score</h3>
+                    <div class="table-responsive">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Thứ Hạng</th>
+                                    <th>Con Số 2D</th>
+                                    <th>Thuộc Tổng</th>
+                                    <th>Nhịp Gan (Ngày)</th>
+                                    <th>TS 30 Ngày</th>
+                                    <th>TS 60 Ngày</th>
+                                    <th>Điểm Super-Score</th>
+                                    <th>Hợp Lệ G7</th>
+                                </tr>
+                            </thead>
+                            <tbody id="top20-table-body">
+                                <!-- Rendered by JS -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TAB 3: 3D MATRIX -->
+            <section id="tab-matrix3d" class="tab-page">
+                <div class="panel glass">
+                    <h3>🎯 Xếp Hạng Top Ba Càng (3D) Mạnh Nhất</h3>
+                    <div class="table-responsive">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>STT</th>
+                                    <th>Càng Đầu</th>
+                                    <th>Số 3D Dự Đoán</th>
+                                    <th>Gốc 2D</th>
+                                    <th>Điểm Đồng Thuận</th>
+                                    <th>Phân Loại</th>
+                                </tr>
+                            </thead>
+                            <tbody id="matrix3d-table-body">
+                                <!-- Rendered by JS -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TAB 4: BACKTEST & RISK -->
+            <section id="tab-backtest" class="tab-page">
+                <div class="grid-2col">
+                    <div class="panel glass">
+                        <h3>📈 Kết Quả Giả Lập Backtest (2026)</h3>
+                        <ul class="info-list" id="backtest-info-list">
+                            <!-- Rendered by JS -->
+                        </ul>
+                    </div>
+
+                    <div class="panel glass">
+                        <h3>💰 Quản Lý Vốn & Phân Bổ Tiền Vốn (Kelly)</h3>
+                        <ul class="info-list" id="kelly-info-list">
+                            <!-- Rendered by JS -->
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TAB 5: ELIMINATION -->
+            <section id="tab-elimination" class="tab-page">
+                <div class="panel glass">
+                    <h3>🛡️ Danh Sách Số Rác Đã Bị Loại Trừ</h3>
+                    <div class="table-responsive">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Con Số</th>
+                                    <th>Lý Do Loại Trừ</th>
+                                </tr>
+                            </thead>
+                            <tbody id="elim-table-body">
+                                <!-- Rendered by JS -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
