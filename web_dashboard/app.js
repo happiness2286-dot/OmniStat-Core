@@ -31,7 +31,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 pageTitle.textContent = tabTitles[targetTab];
             }
 
-            // Scroll top smoothly on mobile switch
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
     });
@@ -52,6 +51,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const meta = data.metadata || {};
         const analytics = data.analytics || {};
         const risk = data.risk_and_finance || {};
+        const frame3d = analytics.frame_3days || {};
 
         // Render Metadata
         if (meta.latest_draw) {
@@ -79,6 +79,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const elim = analytics.elimination_summary || {};
         document.getElementById("elim-count").textContent = `${elim.eliminated_count || 0} số`;
+
+        // RENDER EXPLICIT N1, N2, N3 FRAME NUMBERS IN OVERVIEW TAB
+        renderFrameNumbers("n1-numbers-container", frame3d.n1?.numbers || []);
+        renderFrameNumbers("n2-numbers-container", frame3d.n2?.numbers || []);
+        renderFrameNumbers("n3-numbers-container", frame3d.n3?.numbers || []);
+
+        if (frame3d.n1) document.getElementById("n1-count").textContent = `${frame3d.n1.count} số`;
+        if (frame3d.n2) document.getElementById("n2-count").textContent = `${frame3d.n2.count} số`;
+        if (frame3d.n3) document.getElementById("n3-count").textContent = `${frame3d.n3.count} số`;
 
         // Render Top 20 Table
         const top20Body = document.getElementById("top20-table-body");
@@ -159,6 +168,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // Initialize Live Filter Controls
         setupFilters(analytics.top40_consensus || []);
+    }
+
+    function renderFrameNumbers(containerId, numbers) {
+        const container = document.getElementById(containerId);
+        if (!container) return;
+        container.innerHTML = "";
+        numbers.forEach(num => {
+            const span = document.createElement("span");
+            span.className = "pill-sm";
+            span.textContent = num;
+            container.appendChild(span);
+        });
     }
 
     function setupFilters(top40) {

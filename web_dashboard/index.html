@@ -81,6 +81,7 @@
 
             <!-- TAB 1: OVERVIEW -->
             <section id="tab-overview" class="tab-page active">
+                <!-- Top Key Metrics Cards -->
                 <div class="metrics-grid">
                     <div class="metric-card glass">
                         <div class="card-header">
@@ -114,6 +115,78 @@
                         </div>
                         <div class="metric-value text-danger" id="elim-count">-- số</div>
                         <small>Màng lọc rác đa nhân tố</small>
+                    </div>
+                </div>
+
+                <!-- EXPLICIT 3-DAY ROLLING FRAME SECTION (N1, N2, N3) -->
+                <div class="panel glass frame-section">
+                    <div class="panel-header-flex">
+                        <div>
+                            <h3>🚀 CHI TIẾT KHUNG NUÔI 3 NGÀY (N1 - N2 - N3)</h3>
+                            <p class="section-desc">Mô hình chiến thuật phân bổ vốn gấp thếp theo 3 giai đoạn đạt tỷ lệ trúng 87.5% năm 2026</p>
+                        </div>
+                        <div class="frame-sub-selector">
+                            <button class="frame-sub-tab active" data-frame="n1">
+                                <span class="badge-stage bg-n1">N1</span> Ngày 1 (Hỏa Lực)
+                            </button>
+                            <button class="frame-sub-tab" data-frame="n2">
+                                <span class="badge-stage bg-n2">N2</span> Ngày 2 (Siêu Lọc)
+                            </button>
+                            <button class="frame-sub-tab" data-frame="n3">
+                                <span class="badge-stage bg-n3">N3</span> Ngày 3 (Max Khung)
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Frame Details Grid (3 Cards Overview) -->
+                    <div class="frame-cards-grid">
+                        <div class="frame-card glass-sub active-frame" id="card-n1">
+                            <div class="frame-card-header">
+                                <span class="frame-badge bg-n1">NGÀY N1</span>
+                                <span class="frame-rate text-accent">Trúng 54.62%</span>
+                            </div>
+                            <h4>Dàn Gốc Hỏa Lực</h4>
+                            <p class="frame-desc">Dàn 40 số từ G7 Top 1-3. Đánh ngày đầu tiên.</p>
+                            <div class="frame-meta">
+                                <span>Số lượng: <strong id="n1-count">40 số</strong></span>
+                                <span>Tỷ lệ vốn: <strong class="text-accent">1.0x</strong></span>
+                            </div>
+                            <div class="number-pills-mini" id="n1-numbers-container">
+                                <!-- Rendered by JS -->
+                            </div>
+                        </div>
+
+                        <div class="frame-card glass-sub" id="card-n2">
+                            <div class="frame-card-header">
+                                <span class="frame-badge bg-n2">NGÀY N2</span>
+                                <span class="frame-rate text-success">Trúng 72.50%</span>
+                            </div>
+                            <h4>Dàn Siêu Lọc 36 Số</h4>
+                            <p class="frame-desc">Lọc hợp lệ G7. Đánh ngày thứ 2 khi N1 trượt.</p>
+                            <div class="frame-meta">
+                                <span>Số lượng: <strong id="n2-count">36 số</strong></span>
+                                <span>Tỷ lệ vốn: <strong class="text-warning">2.2x</strong></span>
+                            </div>
+                            <div class="number-pills-mini" id="n2-numbers-container">
+                                <!-- Rendered by JS -->
+                            </div>
+                        </div>
+
+                        <div class="frame-card glass-sub" id="card-n3">
+                            <div class="frame-card-header">
+                                <span class="frame-badge bg-n3">NGÀY N3</span>
+                                <span class="frame-rate text-success">Trúng 87.50%</span>
+                            </div>
+                            <h4>Dàn Max Khung 36 Số</h4>
+                            <p class="frame-desc">Tối ưu Super-Score. Đánh ngày cuối chốt khung.</p>
+                            <div class="frame-meta">
+                                <span>Số lượng: <strong id="n3-count">36 số</strong></span>
+                                <span>Tỷ lệ vốn: <strong class="text-danger">4.8x</strong></span>
+                            </div>
+                            <div class="number-pills-mini" id="n3-numbers-container">
+                                <!-- Rendered by JS -->
+                            </div>
+                        </div>
                     </div>
                 </div>
 

@@ -270,6 +270,105 @@ body {
     font-family: 'JetBrains Mono', monospace;
 }
 
+/* EXPLICIT 3-DAY ROLLING FRAME STYLING (N1, N2, N3) */
+.frame-section {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.panel-header-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+}
+
+.section-desc {
+    font-size: 12px;
+    color: var(--text-secondary);
+    margin-top: 4px;
+}
+
+.frame-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
+
+.glass-sub {
+    background: rgba(15, 23, 42, 0.6);
+    border: 1px solid var(--border-color);
+    border-radius: 14px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    transition: all 0.25s ease;
+}
+
+.glass-sub:hover {
+    border-color: rgba(56, 189, 248, 0.4);
+    transform: translateY(-2px);
+}
+
+.frame-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.frame-badge {
+    font-size: 11px;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 6px;
+    color: #ffffff;
+}
+
+.bg-n1 { background: linear-gradient(135deg, #0284c7, #38bdf8); }
+.bg-n2 { background: linear-gradient(135deg, #d97706, #fbbf24); }
+.bg-n3 { background: linear-gradient(135deg, #dc2626, #f87171); }
+
+.frame-rate {
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.frame-desc {
+    font-size: 11px;
+    color: var(--text-muted);
+    line-height: 1.4;
+}
+
+.frame-meta {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    padding-top: 6px;
+    border-top: 1px dashed var(--border-color);
+}
+
+.number-pills-mini {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    max-height: 150px;
+    overflow-y: auto;
+    padding-right: 4px;
+}
+
+.pill-sm {
+    padding: 4px 8px;
+    background: rgba(30, 41, 59, 0.9);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
 .filter-panel {
     display: flex;
     flex-direction: column;
@@ -377,6 +476,7 @@ body {
 .text-accent { color: var(--accent-blue); }
 .text-info { color: var(--accent-indigo); }
 .desktop-only { display: block; }
+.frame-sub-selector { display: none; }
 
 /* MOBILE RESPONSIVE UI (iPhone / Smartphones) */
 @media (max-width: 768px) {
@@ -386,6 +486,11 @@ body {
 
     .app-header {
         padding: 10px 14px;
+    }
+
+    .frame-cards-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
     }
 
     /* Transform Centered Navigation to Fixed Bottom Bar on Mobile */
