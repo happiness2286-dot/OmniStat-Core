@@ -80,14 +80,28 @@ document.addEventListener("DOMContentLoaded", () => {
         const elim = analytics.elimination_summary || {};
         document.getElementById("elim-count").textContent = `${elim.eliminated_count || 0} số`;
 
-        // RENDER EXPLICIT N1, N2, N3 FRAME NUMBERS IN OVERVIEW TAB
-        renderFrameNumbers("n1-numbers-container", frame3d.n1?.numbers || []);
-        renderFrameNumbers("n2-numbers-container", frame3d.n2?.numbers || []);
-        renderFrameNumbers("n3-numbers-container", frame3d.n3?.numbers || []);
+        // RENDER EXPLICIT DATES AND NUMBERS FOR N1, N2, N3
+        if (frame3d.n1) {
+            document.getElementById("n1-date-str").textContent = `📅 N1: ${frame3d.n1.date}`;
+            document.getElementById("n1-count").textContent = `${frame3d.n1.count} số`;
+            renderFrameNumbers("n1-numbers-container", frame3d.n1.numbers || []);
+        }
 
-        if (frame3d.n1) document.getElementById("n1-count").textContent = `${frame3d.n1.count} số`;
-        if (frame3d.n2) document.getElementById("n2-count").textContent = `${frame3d.n2.count} số`;
-        if (frame3d.n3) document.getElementById("n3-count").textContent = `${frame3d.n3.count} số`;
+        if (frame3d.n2) {
+            document.getElementById("n2-date-str").textContent = `📅 N2: ${frame3d.n2.date}`;
+            document.getElementById("n2-count").textContent = `${frame3d.n2.count} số`;
+            renderFrameNumbers("n2-numbers-container", frame3d.n2.numbers || []);
+        }
+
+        if (frame3d.n3) {
+            document.getElementById("n3-date-str").textContent = `📅 N3: ${frame3d.n3.date}`;
+            document.getElementById("n3-count").textContent = `${frame3d.n3.count} số`;
+            renderFrameNumbers("n3-numbers-container", frame3d.n3.numbers || []);
+        }
+
+        // RENDER DUAL-FRAME OVERLAP NUMBERS (OPTION C)
+        const combinedNums = frame3d.dual_frame_options?.option_combined?.numbers || [];
+        renderFrameNumbers("combined-numbers-container", combinedNums);
 
         // Render Top 20 Table
         const top20Body = document.getElementById("top20-table-body");

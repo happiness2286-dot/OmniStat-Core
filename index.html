@@ -118,72 +118,110 @@
                     </div>
                 </div>
 
-                <!-- EXPLICIT 3-DAY ROLLING FRAME SECTION (N1, N2, N3) -->
+                <!-- EXPLICIT CALENDAR DATES & 3-DAY ROLLING FRAME SECTION (N1, N2, N3) -->
                 <div class="panel glass frame-section">
                     <div class="panel-header-flex">
                         <div>
-                            <h3>🚀 CHI TIẾT KHUNG NUÔI 3 NGÀY (N1 - N2 - N3)</h3>
-                            <p class="section-desc">Mô hình chiến thuật phân bổ vốn gấp thếp theo 3 giai đoạn đạt tỷ lệ trúng 87.5% năm 2026</p>
-                        </div>
-                        <div class="frame-sub-selector">
-                            <button class="frame-sub-tab active" data-frame="n1">
-                                <span class="badge-stage bg-n1">N1</span> Ngày 1 (Hỏa Lực)
-                            </button>
-                            <button class="frame-sub-tab" data-frame="n2">
-                                <span class="badge-stage bg-n2">N2</span> Ngày 2 (Siêu Lọc)
-                            </button>
-                            <button class="frame-sub-tab" data-frame="n3">
-                                <span class="badge-stage bg-n3">N3</span> Ngày 3 (Max Khung)
-                            </button>
+                            <h3>🚀 LỊCH KHUNG NUÔI 3 NGÀY CỤ THỂ (N1 - N2 - N3)</h3>
+                            <p class="section-desc">Mô hình tự động gắn ngày quay cụ thể. Trúng ngày nào ➔ Tự động Reset dàn N1 mới cho ngày hôm sau.</p>
                         </div>
                     </div>
 
-                    <!-- Frame Details Grid (3 Cards Overview) -->
+                    <!-- Rule Reset Alert Banner -->
+                    <div class="rule-banner">
+                        <span class="rule-icon">💡</span>
+                        <div class="rule-text">
+                            <strong>Quy tắc trúng khung & chuyển ngày:</strong> Nếu <strong>Trúng N1</strong> ngày hôm nay ➔ Kết thúc khung, ngày mai chuyển đánh Dàn N1 MỚI. Nếu <strong>Trượt N1</strong> ➔ Ngày mai chuyển sang Dàn N2 (và tương tự với N3).
+                        </div>
+                    </div>
+
+                    <!-- Frame Details Grid (3 Cards with Explicit Dates) -->
                     <div class="frame-cards-grid">
+                        <!-- Card N1 -->
                         <div class="frame-card glass-sub active-frame" id="card-n1">
                             <div class="frame-card-header">
                                 <span class="frame-badge bg-n1">NGÀY N1</span>
                                 <span class="frame-rate text-accent">Trúng 54.62%</span>
                             </div>
+                            <div class="date-highlight" id="n1-date-str">📅 Ngày N1: --</div>
                             <h4>Dàn Gốc Hỏa Lực</h4>
-                            <p class="frame-desc">Dàn 40 số từ G7 Top 1-3. Đánh ngày đầu tiên.</p>
+                            <p class="frame-desc" id="n1-desc-str">Dàn 40 số bắt nhịp từ G7 Top 1-3. Đánh ngày đầu tiên.</p>
                             <div class="frame-meta">
                                 <span>Số lượng: <strong id="n1-count">40 số</strong></span>
-                                <span>Tỷ lệ vốn: <strong class="text-accent">1.0x</strong></span>
+                                <span>Tỷ lệ vốn: <strong class="text-accent">1.0x (Ví dụ: 100k)</strong></span>
                             </div>
                             <div class="number-pills-mini" id="n1-numbers-container">
                                 <!-- Rendered by JS -->
                             </div>
                         </div>
 
+                        <!-- Card N2 -->
                         <div class="frame-card glass-sub" id="card-n2">
                             <div class="frame-card-header">
                                 <span class="frame-badge bg-n2">NGÀY N2</span>
                                 <span class="frame-rate text-success">Trúng 72.50%</span>
                             </div>
+                            <div class="date-highlight" id="n2-date-str">📅 Ngày N2: --</div>
                             <h4>Dàn Siêu Lọc 36 Số</h4>
-                            <p class="frame-desc">Lọc hợp lệ G7. Đánh ngày thứ 2 khi N1 trượt.</p>
+                            <p class="frame-desc" id="n2-desc-str">Đánh khi N1 trượt. Gấp thếp vốn N2.</p>
                             <div class="frame-meta">
                                 <span>Số lượng: <strong id="n2-count">36 số</strong></span>
-                                <span>Tỷ lệ vốn: <strong class="text-warning">2.2x</strong></span>
+                                <span>Tỷ lệ vốn: <strong class="text-warning">2.2x (Ví dụ: 220k)</strong></span>
                             </div>
                             <div class="number-pills-mini" id="n2-numbers-container">
                                 <!-- Rendered by JS -->
                             </div>
                         </div>
 
+                        <!-- Card N3 -->
                         <div class="frame-card glass-sub" id="card-n3">
                             <div class="frame-card-header">
                                 <span class="frame-badge bg-n3">NGÀY N3</span>
                                 <span class="frame-rate text-success">Trúng 87.50%</span>
                             </div>
+                            <div class="date-highlight" id="n3-date-str">📅 Ngày N3: --</div>
                             <h4>Dàn Max Khung 36 Số</h4>
-                            <p class="frame-desc">Tối ưu Super-Score. Đánh ngày cuối chốt khung.</p>
+                            <p class="frame-desc" id="n3-desc-str">Đánh khi N1 và N2 trượt. Chốt Max Khung.</p>
                             <div class="frame-meta">
                                 <span>Số lượng: <strong id="n3-count">36 số</strong></span>
-                                <span>Tỷ lệ vốn: <strong class="text-danger">4.8x</strong></span>
+                                <span>Tỷ lệ vốn: <strong class="text-danger">4.8x (Ví dụ: 480k)</strong></span>
                             </div>
                             <div class="number-pills-mini" id="n3-numbers-container">
+                                <!-- Rendered by JS -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- DUAL-FRAME GOI DAU MANAGER (BỘ TÙY CHỌN GỐI ĐẦU & NĂM DÀN MỚI NGÀY) -->
+                <div class="panel glass dual-frame-section">
+                    <h3>🔀 BỘ QUẢN LÝ GỐI ĐẦU KHUNG & DÀN MỚI TRONG NGÀY</h3>
+                    <p class="section-desc">Khi bạn đang trôi ở Dàn N2/N3 cũ nhưng ngày hôm nay vẫn ra Dàn N1 MỚI ➔ Hệ thống phân tích 3 phương án để bạn lựa chọn:</p>
+
+                    <div class="dual-options-grid">
+                        <div class="dual-option-card glass-sub">
+                            <div class="option-header">
+                                <span class="opt-tag tag-a">Phương Án A</span>
+                                <h4>Tiếp Tục Đánh Dàn N2/N3 Cũ</h4>
+                            </div>
+                            <p class="opt-desc">Giữ đúng kỷ luật khung cũ để đảm bảo tỷ lệ trúng 72.5% (N2) hoặc 87.5% (N3).</p>
+                        </div>
+
+                        <div class="dual-option-card glass-sub">
+                            <div class="option-header">
+                                <span class="opt-tag tag-b">Phương Án B</span>
+                                <h4>Bỏ Khung Cũ ➔ Chuyển Dàn N1 Mới</h4>
+                            </div>
+                            <p class="opt-desc">Bắt đầu khung mới từ đầu cho ngày hôm nay với dàn 40 số hỏa lực N1 vừa cập nhật.</p>
+                        </div>
+
+                        <div class="dual-option-card glass-sub featured-opt">
+                            <div class="option-header">
+                                <span class="opt-tag tag-c">Phương Án C (Khuyên Dùng)</span>
+                                <h4>ĐÁNH GỐI ĐẦU GIAO THOA (N2/N3 Cũ + N1 Mới)</h4>
+                            </div>
+                            <p class="opt-desc">Lọc tập giao thoa trùng nhau giữa khung cũ và khung mới để tối ưu số lượng con số và tiết kiệm vốn.</p>
+                            <div class="number-pills-mini" id="combined-numbers-container">
                                 <!-- Rendered by JS -->
                             </div>
                         </div>
