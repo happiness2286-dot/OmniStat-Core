@@ -1,32 +1,56 @@
 {
   "metadata": {
     "system_name": "OmniStat Core Quantitative Engine",
-    "last_updated": "2026-09-09 17:58:16",
-    "total_records_analyzed": 245,
+    "last_updated": "2026-09-11 17:33:51",
+    "total_records_analyzed": 246,
     "latest_draw": {
-      "stt": 245,
-      "date": "Thứ ba ngày 08-09-2026",
-      "gdb": "39687",
-      "de_2d": "87",
+      "stt": 246,
+      "date": "Thứ năm ngày 10-09-2026",
+      "gdb": "30981",
+      "de_2d": "81",
       "head": "8",
-      "tail": "7",
-      "sum": 5,
-      "g7_1": "08",
-      "g7_2": "38",
-      "g7_3": "60",
-      "g7_4": "07"
+      "tail": "1",
+      "sum": 9,
+      "g7_1": "53",
+      "g7_2": "94",
+      "g7_3": "14",
+      "g7_4": "47"
     },
-    "next_forecast_date": "Thứ Tư, 09-09-2026"
+    "next_forecast_date": "Thứ Sáu, 11-09-2026"
   },
   "analytics": {
     "top20_consensus": [
       {
+        "number": "21",
+        "super_score": 49.0,
+        "sum": 3,
+        "head": 2,
+        "tail": 1,
+        "gan_days": 6,
+        "f30": 2,
+        "f60": 2,
+        "f90": 2,
+        "g7_valid": true
+      },
+      {
+        "number": "44",
+        "super_score": 49.0,
+        "sum": 8,
+        "head": 4,
+        "tail": 4,
+        "gan_days": 7,
+        "f30": 2,
+        "f60": 2,
+        "f90": 2,
+        "g7_valid": true
+      },
+      {
         "number": "38",
         "super_score": 48.0,
         "sum": 1,
         "head": 3,
         "tail": 8,
-        "gan_days": 14,
+        "gan_days": 15,
         "f30": 1,
         "f60": 3,
         "f90": 3,
@@ -38,7 +62,7 @@
         "sum": 1,
         "head": 8,
         "tail": 3,
-        "gan_days": 19,
+        "gan_days": 20,
         "f30": 1,
         "f60": 2,
         "f90": 4,
@@ -50,7 +74,7 @@
         "sum": 2,
         "head": 3,
         "tail": 9,
-        "gan_days": 20,
+        "gan_days": 21,
         "f30": 1,
         "f60": 2,
         "f90": 3,
@@ -62,7 +86,7 @@
         "sum": 5,
         "head": 2,
         "tail": 3,
-        "gan_days": 17,
+        "gan_days": 18,
         "f30": 1,
         "f60": 2,
         "f90": 2,
@@ -74,31 +98,19 @@
         "sum": 5,
         "head": 9,
         "tail": 6,
-        "gan_days": 21,
+        "gan_days": 22,
         "f30": 1,
         "f60": 2,
         "f90": 2,
         "g7_valid": true
       },
       {
-        "number": "68",
+        "number": "42",
         "super_score": 43.0,
-        "sum": 4,
-        "head": 6,
-        "tail": 8,
-        "gan_days": 9,
-        "f30": 1,
-        "f60": 1,
-        "f90": 2,
-        "g7_valid": true
-      },
-      {
-        "number": "80",
-        "super_score": 43.0,
-        "sum": 8,
-        "head": 8,
-        "tail": 0,
-        "gan_days": 12,
+        "sum": 6,
+        "head": 4,
+        "tail": 2,
+        "gan_days": 5,
         "f30": 1,
         "f60": 1,
         "f90": 2,
@@ -110,7 +122,7 @@
         "sum": 4,
         "head": 1,
         "tail": 3,
-        "gan_days": 15,
+        "gan_days": 16,
         "f30": 1,
         "f60": 1,
         "f90": 1,
@@ -122,250 +134,8 @@
         "sum": 8,
         "head": 1,
         "tail": 7,
-        "gan_days": 13,
-        "f30": 1,
-        "f60": 1,
-        "f90": 1,
-        "g7_valid": true
-      },
-      {
-        "number": "18",
-        "super_score": 42.0,
-        "sum": 9,
-        "head": 1,
-        "tail": 8,
-        "gan_days": 23,
-        "f30": 1,
-        "f60": 1,
-        "f90": 1,
-        "g7_valid": true
-      },
-      {
-        "number": "26",
-        "super_score": 42.0,
-        "sum": 8,
-        "head": 2,
-        "tail": 6,
-        "gan_days": 25,
-        "f30": 1,
-        "f60": 1,
-        "f90": 1,
-        "g7_valid": true
-      },
-      {
-        "number": "33",
-        "super_score": 42.0,
-        "sum": 6,
-        "head": 3,
-        "tail": 3,
-        "gan_days": 16,
-        "f30": 1,
-        "f60": 1,
-        "f90": 1,
-        "g7_valid": true
-      },
-      {
-        "number": "43",
-        "super_score": 42.0,
-        "sum": 7,
-        "head": 4,
-        "tail": 3,
-        "gan_days": 18,
-        "f30": 1,
-        "f60": 1,
-        "f90": 1,
-        "g7_valid": true
-      },
-      {
-        "number": "61",
-        "super_score": 42.0,
-        "sum": 7,
-        "head": 6,
-        "tail": 1,
-        "gan_days": 11,
-        "f30": 1,
-        "f60": 1,
-        "f90": 1,
-        "g7_valid": true
-      },
-      {
-        "number": "72",
-        "super_score": 42.0,
-        "sum": 9,
-        "head": 7,
-        "tail": 2,
-        "gan_days": 7,
-        "f30": 1,
-        "f60": 1,
-        "f90": 1,
-        "g7_valid": true
-      },
-      {
-        "number": "78",
-        "super_score": 42.0,
-        "sum": 5,
-        "head": 7,
-        "tail": 8,
-        "gan_days": 22,
-        "f30": 1,
-        "f60": 1,
-        "f90": 1,
-        "g7_valid": true
-      },
-      {
-        "number": "37",
-        "super_score": 40.0,
-        "sum": 0,
-        "head": 3,
-        "tail": 7,
-        "gan_days": 1,
-        "f30": 2,
-        "f60": 2,
-        "f90": 3,
-        "g7_valid": true
-      },
-      {
-        "number": "21",
-        "super_score": 34.0,
-        "sum": 3,
-        "head": 2,
-        "tail": 1,
-        "gan_days": 5,
-        "f30": 2,
-        "f60": 2,
-        "f90": 2,
-        "g7_valid": false
-      },
-      {
-        "number": "44",
-        "super_score": 34.0,
-        "sum": 8,
-        "head": 4,
-        "tail": 4,
-        "gan_days": 6,
-        "f30": 2,
-        "f60": 2,
-        "f90": 2,
-        "g7_valid": false
-      },
-      {
-        "number": "87",
-        "super_score": 33.0,
-        "sum": 5,
-        "head": 8,
-        "tail": 7,
-        "gan_days": 0,
-        "f30": 1,
-        "f60": 1,
-        "f90": 2,
-        "g7_valid": true
-      }
-    ],
-    "top40_consensus": [
-      {
-        "number": "38",
-        "super_score": 48.0,
-        "sum": 1,
-        "head": 3,
-        "tail": 8,
         "gan_days": 14,
         "f30": 1,
-        "f60": 3,
-        "f90": 3,
-        "g7_valid": true
-      },
-      {
-        "number": "83",
-        "super_score": 47.0,
-        "sum": 1,
-        "head": 8,
-        "tail": 3,
-        "gan_days": 19,
-        "f30": 1,
-        "f60": 2,
-        "f90": 4,
-        "g7_valid": true
-      },
-      {
-        "number": "39",
-        "super_score": 46.0,
-        "sum": 2,
-        "head": 3,
-        "tail": 9,
-        "gan_days": 20,
-        "f30": 1,
-        "f60": 2,
-        "f90": 3,
-        "g7_valid": true
-      },
-      {
-        "number": "23",
-        "super_score": 45.0,
-        "sum": 5,
-        "head": 2,
-        "tail": 3,
-        "gan_days": 17,
-        "f30": 1,
-        "f60": 2,
-        "f90": 2,
-        "g7_valid": true
-      },
-      {
-        "number": "96",
-        "super_score": 45.0,
-        "sum": 5,
-        "head": 9,
-        "tail": 6,
-        "gan_days": 21,
-        "f30": 1,
-        "f60": 2,
-        "f90": 2,
-        "g7_valid": true
-      },
-      {
-        "number": "68",
-        "super_score": 43.0,
-        "sum": 4,
-        "head": 6,
-        "tail": 8,
-        "gan_days": 9,
-        "f30": 1,
-        "f60": 1,
-        "f90": 2,
-        "g7_valid": true
-      },
-      {
-        "number": "80",
-        "super_score": 43.0,
-        "sum": 8,
-        "head": 8,
-        "tail": 0,
-        "gan_days": 12,
-        "f30": 1,
-        "f60": 1,
-        "f90": 2,
-        "g7_valid": true
-      },
-      {
-        "number": "13",
-        "super_score": 42.0,
-        "sum": 4,
-        "head": 1,
-        "tail": 3,
-        "gan_days": 15,
-        "f30": 1,
-        "f60": 1,
-        "f90": 1,
-        "g7_valid": true
-      },
-      {
-        "number": "17",
-        "super_score": 42.0,
-        "sum": 8,
-        "head": 1,
-        "tail": 7,
-        "gan_days": 13,
-        "f30": 1,
         "f60": 1,
         "f90": 1,
         "g7_valid": true
@@ -376,19 +146,7 @@
         "sum": 9,
         "head": 1,
         "tail": 8,
-        "gan_days": 23,
-        "f30": 1,
-        "f60": 1,
-        "f90": 1,
-        "g7_valid": true
-      },
-      {
-        "number": "26",
-        "super_score": 42.0,
-        "sum": 8,
-        "head": 2,
-        "tail": 6,
-        "gan_days": 25,
+        "gan_days": 24,
         "f30": 1,
         "f60": 1,
         "f90": 1,
@@ -400,7 +158,7 @@
         "sum": 6,
         "head": 3,
         "tail": 3,
-        "gan_days": 16,
+        "gan_days": 17,
         "f30": 1,
         "f60": 1,
         "f90": 1,
@@ -412,103 +170,7 @@
         "sum": 7,
         "head": 4,
         "tail": 3,
-        "gan_days": 18,
-        "f30": 1,
-        "f60": 1,
-        "f90": 1,
-        "g7_valid": true
-      },
-      {
-        "number": "61",
-        "super_score": 42.0,
-        "sum": 7,
-        "head": 6,
-        "tail": 1,
-        "gan_days": 11,
-        "f30": 1,
-        "f60": 1,
-        "f90": 1,
-        "g7_valid": true
-      },
-      {
-        "number": "72",
-        "super_score": 42.0,
-        "sum": 9,
-        "head": 7,
-        "tail": 2,
-        "gan_days": 7,
-        "f30": 1,
-        "f60": 1,
-        "f90": 1,
-        "g7_valid": true
-      },
-      {
-        "number": "78",
-        "super_score": 42.0,
-        "sum": 5,
-        "head": 7,
-        "tail": 8,
-        "gan_days": 22,
-        "f30": 1,
-        "f60": 1,
-        "f90": 1,
-        "g7_valid": true
-      },
-      {
-        "number": "37",
-        "super_score": 40.0,
-        "sum": 0,
-        "head": 3,
-        "tail": 7,
-        "gan_days": 1,
-        "f30": 2,
-        "f60": 2,
-        "f90": 3,
-        "g7_valid": true
-      },
-      {
-        "number": "21",
-        "super_score": 34.0,
-        "sum": 3,
-        "head": 2,
-        "tail": 1,
-        "gan_days": 5,
-        "f30": 2,
-        "f60": 2,
-        "f90": 2,
-        "g7_valid": false
-      },
-      {
-        "number": "44",
-        "super_score": 34.0,
-        "sum": 8,
-        "head": 4,
-        "tail": 4,
-        "gan_days": 6,
-        "f30": 2,
-        "f60": 2,
-        "f90": 2,
-        "g7_valid": false
-      },
-      {
-        "number": "87",
-        "super_score": 33.0,
-        "sum": 5,
-        "head": 8,
-        "tail": 7,
-        "gan_days": 0,
-        "f30": 1,
-        "f60": 1,
-        "f90": 2,
-        "g7_valid": true
-      },
-      {
-        "number": "66",
-        "super_score": 32.0,
-        "sum": 2,
-        "head": 6,
-        "tail": 6,
-        "gan_days": 2,
+        "gan_days": 19,
         "f30": 1,
         "f60": 1,
         "f90": 1,
@@ -516,15 +178,377 @@
       },
       {
         "number": "45",
-        "super_score": 27.0,
+        "super_score": 42.0,
         "sum": 9,
         "head": 4,
         "tail": 5,
-        "gan_days": 10,
+        "gan_days": 11,
         "f30": 1,
         "f60": 1,
         "f90": 1,
+        "g7_valid": true
+      },
+      {
+        "number": "61",
+        "super_score": 42.0,
+        "sum": 7,
+        "head": 6,
+        "tail": 1,
+        "gan_days": 12,
+        "f30": 1,
+        "f60": 1,
+        "f90": 1,
+        "g7_valid": true
+      },
+      {
+        "number": "72",
+        "super_score": 42.0,
+        "sum": 9,
+        "head": 7,
+        "tail": 2,
+        "gan_days": 8,
+        "f30": 1,
+        "f60": 1,
+        "f90": 1,
+        "g7_valid": true
+      },
+      {
+        "number": "78",
+        "super_score": 42.0,
+        "sum": 5,
+        "head": 7,
+        "tail": 8,
+        "gan_days": 23,
+        "f30": 1,
+        "f60": 1,
+        "f90": 1,
+        "g7_valid": true
+      },
+      {
+        "number": "37",
+        "super_score": 40.0,
+        "sum": 0,
+        "head": 3,
+        "tail": 7,
+        "gan_days": 2,
+        "f30": 2,
+        "f60": 2,
+        "f90": 3,
+        "g7_valid": true
+      },
+      {
+        "number": "87",
+        "super_score": 33.0,
+        "sum": 5,
+        "head": 8,
+        "tail": 7,
+        "gan_days": 1,
+        "f30": 1,
+        "f60": 1,
+        "f90": 2,
+        "g7_valid": true
+      },
+      {
+        "number": "11",
+        "super_score": 32.0,
+        "sum": 2,
+        "head": 1,
+        "tail": 1,
+        "gan_days": 4,
+        "f30": 1,
+        "f60": 1,
+        "f90": 1,
+        "g7_valid": true
+      }
+    ],
+    "top40_consensus": [
+      {
+        "number": "21",
+        "super_score": 49.0,
+        "sum": 3,
+        "head": 2,
+        "tail": 1,
+        "gan_days": 6,
+        "f30": 2,
+        "f60": 2,
+        "f90": 2,
+        "g7_valid": true
+      },
+      {
+        "number": "44",
+        "super_score": 49.0,
+        "sum": 8,
+        "head": 4,
+        "tail": 4,
+        "gan_days": 7,
+        "f30": 2,
+        "f60": 2,
+        "f90": 2,
+        "g7_valid": true
+      },
+      {
+        "number": "38",
+        "super_score": 48.0,
+        "sum": 1,
+        "head": 3,
+        "tail": 8,
+        "gan_days": 15,
+        "f30": 1,
+        "f60": 3,
+        "f90": 3,
+        "g7_valid": true
+      },
+      {
+        "number": "83",
+        "super_score": 47.0,
+        "sum": 1,
+        "head": 8,
+        "tail": 3,
+        "gan_days": 20,
+        "f30": 1,
+        "f60": 2,
+        "f90": 4,
+        "g7_valid": true
+      },
+      {
+        "number": "39",
+        "super_score": 46.0,
+        "sum": 2,
+        "head": 3,
+        "tail": 9,
+        "gan_days": 21,
+        "f30": 1,
+        "f60": 2,
+        "f90": 3,
+        "g7_valid": true
+      },
+      {
+        "number": "23",
+        "super_score": 45.0,
+        "sum": 5,
+        "head": 2,
+        "tail": 3,
+        "gan_days": 18,
+        "f30": 1,
+        "f60": 2,
+        "f90": 2,
+        "g7_valid": true
+      },
+      {
+        "number": "96",
+        "super_score": 45.0,
+        "sum": 5,
+        "head": 9,
+        "tail": 6,
+        "gan_days": 22,
+        "f30": 1,
+        "f60": 2,
+        "f90": 2,
+        "g7_valid": true
+      },
+      {
+        "number": "42",
+        "super_score": 43.0,
+        "sum": 6,
+        "head": 4,
+        "tail": 2,
+        "gan_days": 5,
+        "f30": 1,
+        "f60": 1,
+        "f90": 2,
+        "g7_valid": true
+      },
+      {
+        "number": "13",
+        "super_score": 42.0,
+        "sum": 4,
+        "head": 1,
+        "tail": 3,
+        "gan_days": 16,
+        "f30": 1,
+        "f60": 1,
+        "f90": 1,
+        "g7_valid": true
+      },
+      {
+        "number": "17",
+        "super_score": 42.0,
+        "sum": 8,
+        "head": 1,
+        "tail": 7,
+        "gan_days": 14,
+        "f30": 1,
+        "f60": 1,
+        "f90": 1,
+        "g7_valid": true
+      },
+      {
+        "number": "18",
+        "super_score": 42.0,
+        "sum": 9,
+        "head": 1,
+        "tail": 8,
+        "gan_days": 24,
+        "f30": 1,
+        "f60": 1,
+        "f90": 1,
+        "g7_valid": true
+      },
+      {
+        "number": "33",
+        "super_score": 42.0,
+        "sum": 6,
+        "head": 3,
+        "tail": 3,
+        "gan_days": 17,
+        "f30": 1,
+        "f60": 1,
+        "f90": 1,
+        "g7_valid": true
+      },
+      {
+        "number": "43",
+        "super_score": 42.0,
+        "sum": 7,
+        "head": 4,
+        "tail": 3,
+        "gan_days": 19,
+        "f30": 1,
+        "f60": 1,
+        "f90": 1,
+        "g7_valid": true
+      },
+      {
+        "number": "45",
+        "super_score": 42.0,
+        "sum": 9,
+        "head": 4,
+        "tail": 5,
+        "gan_days": 11,
+        "f30": 1,
+        "f60": 1,
+        "f90": 1,
+        "g7_valid": true
+      },
+      {
+        "number": "61",
+        "super_score": 42.0,
+        "sum": 7,
+        "head": 6,
+        "tail": 1,
+        "gan_days": 12,
+        "f30": 1,
+        "f60": 1,
+        "f90": 1,
+        "g7_valid": true
+      },
+      {
+        "number": "72",
+        "super_score": 42.0,
+        "sum": 9,
+        "head": 7,
+        "tail": 2,
+        "gan_days": 8,
+        "f30": 1,
+        "f60": 1,
+        "f90": 1,
+        "g7_valid": true
+      },
+      {
+        "number": "78",
+        "super_score": 42.0,
+        "sum": 5,
+        "head": 7,
+        "tail": 8,
+        "gan_days": 23,
+        "f30": 1,
+        "f60": 1,
+        "f90": 1,
+        "g7_valid": true
+      },
+      {
+        "number": "37",
+        "super_score": 40.0,
+        "sum": 0,
+        "head": 3,
+        "tail": 7,
+        "gan_days": 2,
+        "f30": 2,
+        "f60": 2,
+        "f90": 3,
+        "g7_valid": true
+      },
+      {
+        "number": "87",
+        "super_score": 33.0,
+        "sum": 5,
+        "head": 8,
+        "tail": 7,
+        "gan_days": 1,
+        "f30": 1,
+        "f60": 1,
+        "f90": 2,
+        "g7_valid": true
+      },
+      {
+        "number": "11",
+        "super_score": 32.0,
+        "sum": 2,
+        "head": 1,
+        "tail": 1,
+        "gan_days": 4,
+        "f30": 1,
+        "f60": 1,
+        "f90": 1,
+        "g7_valid": true
+      },
+      {
+        "number": "81",
+        "super_score": 32.0,
+        "sum": 9,
+        "head": 8,
+        "tail": 1,
+        "gan_days": 0,
+        "f30": 1,
+        "f60": 1,
+        "f90": 1,
+        "g7_valid": true
+      },
+      {
+        "number": "68",
+        "super_score": 28.0,
+        "sum": 4,
+        "head": 6,
+        "tail": 8,
+        "gan_days": 10,
+        "f30": 1,
+        "f60": 1,
+        "f90": 2,
         "g7_valid": false
+      },
+      {
+        "number": "80",
+        "super_score": 28.0,
+        "sum": 8,
+        "head": 8,
+        "tail": 0,
+        "gan_days": 13,
+        "f30": 1,
+        "f60": 1,
+        "f90": 2,
+        "g7_valid": false
+      },
+      {
+        "number": "54",
+        "super_score": 27.0,
+        "sum": 9,
+        "head": 5,
+        "tail": 4,
+        "gan_days": 46,
+        "f30": 0,
+        "f60": 2,
+        "f90": 3,
+        "g7_valid": true
       },
       {
         "number": "57",
@@ -532,22 +556,22 @@
         "sum": 2,
         "head": 5,
         "tail": 7,
-        "gan_days": 27,
+        "gan_days": 28,
         "f30": 1,
         "f60": 1,
         "f90": 1,
         "g7_valid": true
       },
       {
-        "number": "28",
-        "super_score": 26.0,
+        "number": "91",
+        "super_score": 27.0,
         "sum": 0,
-        "head": 2,
-        "tail": 8,
-        "gan_days": 43,
-        "f30": 0,
-        "f60": 2,
-        "f90": 2,
+        "head": 9,
+        "tail": 1,
+        "gan_days": 27,
+        "f30": 1,
+        "f60": 1,
+        "f90": 1,
         "g7_valid": true
       },
       {
@@ -556,7 +580,7 @@
         "sum": 1,
         "head": 4,
         "tail": 7,
-        "gan_days": 34,
+        "gan_days": 35,
         "f30": 0,
         "f60": 2,
         "f90": 2,
@@ -568,21 +592,9 @@
         "sum": 3,
         "head": 6,
         "tail": 7,
-        "gan_days": 31,
+        "gan_days": 32,
         "f30": 0,
         "f60": 2,
-        "f90": 2,
-        "g7_valid": true
-      },
-      {
-        "number": "00",
-        "super_score": 24.0,
-        "sum": 0,
-        "head": 0,
-        "tail": 0,
-        "gan_days": 40,
-        "f30": 0,
-        "f60": 1,
         "f90": 2,
         "g7_valid": true
       },
@@ -592,19 +604,7 @@
         "sum": 7,
         "head": 1,
         "tail": 6,
-        "gan_days": 42,
-        "f30": 0,
-        "f60": 1,
-        "f90": 2,
-        "g7_valid": true
-      },
-      {
-        "number": "60",
-        "super_score": 24.0,
-        "sum": 6,
-        "head": 6,
-        "tail": 0,
-        "gan_days": 32,
+        "gan_days": 43,
         "f30": 0,
         "f60": 1,
         "f90": 2,
@@ -616,7 +616,7 @@
         "sum": 6,
         "head": 7,
         "tail": 9,
-        "gan_days": 30,
+        "gan_days": 31,
         "f30": 0,
         "f60": 1,
         "f90": 2,
@@ -628,7 +628,7 @@
         "sum": 1,
         "head": 0,
         "tail": 1,
-        "gan_days": 57,
+        "gan_days": 58,
         "f30": 0,
         "f60": 1,
         "f90": 1,
@@ -640,7 +640,7 @@
         "sum": 9,
         "head": 0,
         "tail": 9,
-        "gan_days": 35,
+        "gan_days": 36,
         "f30": 0,
         "f60": 1,
         "f90": 1,
@@ -652,7 +652,31 @@
         "sum": 1,
         "head": 1,
         "tail": 0,
-        "gan_days": 37,
+        "gan_days": 38,
+        "f30": 0,
+        "f60": 1,
+        "f90": 1,
+        "g7_valid": true
+      },
+      {
+        "number": "19",
+        "super_score": 23.0,
+        "sum": 0,
+        "head": 1,
+        "tail": 9,
+        "gan_days": 54,
+        "f30": 0,
+        "f60": 1,
+        "f90": 1,
+        "g7_valid": true
+      },
+      {
+        "number": "25",
+        "super_score": 23.0,
+        "sum": 7,
+        "head": 2,
+        "tail": 5,
+        "gan_days": 34,
         "f30": 0,
         "f60": 1,
         "f90": 1,
@@ -664,7 +688,7 @@
         "sum": 7,
         "head": 3,
         "tail": 4,
-        "gan_days": 38,
+        "gan_days": 39,
         "f30": 0,
         "f60": 1,
         "f90": 1,
@@ -676,7 +700,7 @@
         "sum": 9,
         "head": 6,
         "tail": 3,
-        "gan_days": 52,
+        "gan_days": 53,
         "f30": 0,
         "f60": 1,
         "f90": 1,
@@ -688,19 +712,7 @@
         "sum": 7,
         "head": 7,
         "tail": 0,
-        "gan_days": 47,
-        "f30": 0,
-        "f60": 1,
-        "f90": 1,
-        "g7_valid": true
-      },
-      {
-        "number": "85",
-        "super_score": 23.0,
-        "sum": 3,
-        "head": 8,
-        "tail": 5,
-        "gan_days": 59,
+        "gan_days": 48,
         "f30": 0,
         "f60": 1,
         "f90": 1,
@@ -712,44 +724,31 @@
         "sum": 9,
         "head": 9,
         "tail": 0,
-        "gan_days": 50,
+        "gan_days": 51,
         "f30": 0,
         "f60": 1,
         "f90": 1,
         "g7_valid": true
       },
       {
-        "number": "89",
-        "super_score": 22.0,
-        "sum": 7,
-        "head": 8,
-        "tail": 9,
-        "gan_days": 60,
-        "f30": 0,
-        "f60": 0,
-        "f90": 2,
-        "g7_valid": true
-      },
-      {
-        "number": "03",
-        "super_score": 21.0,
+        "number": "94",
+        "super_score": 23.0,
         "sum": 3,
-        "head": 0,
-        "tail": 3,
-        "gan_days": 81,
+        "head": 9,
+        "tail": 4,
+        "gan_days": 57,
         "f30": 0,
-        "f60": 0,
+        "f60": 1,
         "f90": 1,
         "g7_valid": true
       }
     ],
     "dynamic_bridges": {
-      "95": 1.5,
       "27": 1.5,
-      "g7_2": 10.0,
+      "g7_2": 11.0,
       "g7_4": 5.0,
       "96": 1.5,
-      "g7_1": 9.0,
+      "g7_1": 10.0,
       "20": 3.0,
       "g7_3": 7.0,
       "14": 3.0,
@@ -770,241 +769,242 @@
       "68": 3.0,
       "70": 1.5,
       "10": 1.5,
-      "08": 1.5
+      "08": 1.5,
+      "07": 1.5
     },
     "markov_predictions": {
       "top_heads": [
         [
           6,
-          0.2222
+          0.2143
         ],
         [
           7,
-          0.1481
+          0.1429
         ],
         [
-          1,
-          0.1111
+          8,
+          0.1429
         ]
       ],
       "top_tails": [
         [
-          1,
-          0.2069
+          6,
+          0.25
         ],
         [
-          2,
-          0.1379
+          4,
+          0.1667
         ],
         [
-          5,
-          0.1379
+          8,
+          0.125
         ]
       ],
       "top_sums": [
         [
-          0,
-          0.1786
+          1,
+          0.2174
         ],
         [
           4,
-          0.1429
+          0.2174
         ],
         [
-          9,
-          0.1429
+          2,
+          0.1304
         ]
       ],
       "full_head_probs": {
-        "0": 0.037,
-        "1": 0.1111,
-        "2": 0.037,
-        "3": 0.1111,
-        "4": 0.0741,
-        "5": 0.037,
-        "6": 0.2222,
-        "7": 0.1481,
-        "8": 0.1111,
-        "9": 0.1111
+        "0": 0.0357,
+        "1": 0.1071,
+        "2": 0.0357,
+        "3": 0.1071,
+        "4": 0.0714,
+        "5": 0.0357,
+        "6": 0.2143,
+        "7": 0.1429,
+        "8": 0.1429,
+        "9": 0.1071
       },
       "full_tail_probs": {
-        "0": 0.069,
-        "1": 0.2069,
-        "2": 0.1379,
-        "3": 0.069,
-        "4": 0.0345,
-        "5": 0.1379,
-        "6": 0.0345,
-        "7": 0.069,
-        "8": 0.1034,
-        "9": 0.1379
+        "0": 0.0833,
+        "1": 0.0833,
+        "2": 0.0833,
+        "3": 0.0833,
+        "4": 0.1667,
+        "5": 0.0417,
+        "6": 0.25,
+        "7": 0.0833,
+        "8": 0.125,
+        "9": 0.0
       },
       "full_sum_probs": {
-        "0": 0.1786,
-        "1": 0.1071,
-        "2": 0.1071,
-        "3": 0.0357,
-        "4": 0.1429,
-        "5": 0.0714,
-        "6": 0.0714,
-        "7": 0.0357,
-        "8": 0.1071,
-        "9": 0.1429
+        "0": 0.0435,
+        "1": 0.2174,
+        "2": 0.1304,
+        "3": 0.0,
+        "4": 0.2174,
+        "5": 0.1304,
+        "6": 0.0,
+        "7": 0.0435,
+        "8": 0.1304,
+        "9": 0.087
       }
     },
     "frame_3days": {
-      "current_stage": "Dự báo cho kỳ quay mới (Thứ Tư, 09-09-2026)",
-      "last_draw_summary": "Kỳ trước (Thứ ba ngày 08-09-2026) nổ 39687 (Đề 87) ➔ TỰ ĐỘNG RESET BẮT DÀN N1 MỚI CHO NGÀY TIẾP THEO.",
+      "current_stage": "Dự báo cho kỳ quay mới (Thứ Sáu, 11-09-2026)",
+      "last_draw_summary": "Kỳ trước (Thứ năm ngày 10-09-2026) nổ 30981 (Đề 81) ➔ TỰ ĐỘNG RESET BẮT DÀN N1 MỚI CHO NGÀY TIẾP THEO.",
       "dual_frame_support": true,
       "n1": {
         "title": "Dàn N1 (Dàn Mới Cho Kỳ Tiếp Theo)",
-        "date": "Thứ Tư, 09-09-2026",
-        "date_short": "09/09/2026",
+        "date": "Thứ Sáu, 11-09-2026",
+        "date_short": "11/09/2026",
         "count": 40,
         "win_rate": "54.62%",
         "stake_ratio": "1.0x (Ví dụ: 100k/số)",
-        "description": "Dàn N1 MỚI dự đoán cho Thứ Tư, 09-09-2026. Do kết quả 87 ngày 08/09/2026 đã ra nên khung tự động reset bắt ngày tiếp theo.",
+        "description": "Dàn N1 MỚI dự đoán cho Thứ Sáu, 11-09-2026. Do kết quả 81 ngày 10/09/2026 đã ra nên khung tự động reset bắt ngày tiếp theo.",
         "numbers": [
+          "21",
+          "44",
           "38",
           "83",
           "39",
           "23",
           "96",
-          "68",
-          "80",
+          "42",
           "13",
           "17",
           "18",
-          "26",
           "33",
           "43",
+          "45",
           "61",
           "72",
           "78",
           "37",
-          "21",
-          "44",
           "87",
-          "66",
-          "45",
+          "11",
+          "81",
+          "68",
+          "80",
+          "54",
           "57",
-          "28",
+          "91",
           "47",
           "67",
-          "00",
           "16",
-          "60",
           "79",
           "01",
           "09",
           "10",
+          "19",
+          "25",
           "34",
           "63",
           "70",
-          "85",
           "90",
-          "89",
-          "03"
+          "94"
         ]
       },
       "n2": {
         "title": "Dàn N2 (Dự phòng Ngày 2)",
-        "date": "Thứ Năm, 10-09-2026",
-        "date_short": "10/09/2026",
+        "date": "Thứ Bảy, 12-09-2026",
+        "date_short": "12/09/2026",
         "count": 36,
         "win_rate": "72.50%",
         "stake_ratio": "2.2x (Gấp thếp: 220k/số)",
-        "description": "Dự phòng cho Thứ Năm, 10-09-2026 nếu ngày N1 trượt.",
+        "description": "Dự phòng cho Thứ Bảy, 12-09-2026 nếu ngày N1 trượt.",
         "numbers": [
-          "38",
-          "83",
-          "39",
-          "23",
-          "96",
-          "68",
-          "80",
-          "13",
-          "17",
-          "18",
-          "26",
-          "33",
-          "43",
-          "61",
-          "72",
-          "78",
-          "37",
-          "87",
-          "66",
-          "57",
-          "28",
-          "47",
-          "67",
-          "00",
-          "16",
-          "60",
-          "79",
-          "01",
-          "09",
-          "10",
-          "34",
-          "63",
-          "70",
-          "85",
-          "90",
-          "89"
-        ]
-      },
-      "n3": {
-        "title": "Dàn N3 (Dự phòng Ngày 3 - Max Khung)",
-        "date": "Thứ Sáu, 11-09-2026",
-        "date_short": "11/09/2026",
-        "count": 36,
-        "win_rate": "87.50%",
-        "stake_ratio": "4.8x (Gấp thếp: 480k/số)",
-        "description": "Dự phòng cho Thứ Sáu, 11-09-2026 nếu cả N1 và N2 trượt. Max Khung.",
-        "numbers": [
-          "38",
-          "83",
-          "39",
-          "23",
-          "96",
-          "68",
-          "80",
-          "13",
-          "17",
-          "18",
-          "26",
-          "33",
-          "43",
-          "61",
-          "72",
-          "78",
-          "37",
           "21",
           "44",
-          "87",
-          "66",
+          "38",
+          "83",
+          "39",
+          "23",
+          "96",
+          "42",
+          "13",
+          "17",
+          "18",
+          "33",
+          "43",
           "45",
+          "61",
+          "72",
+          "78",
+          "37",
+          "87",
+          "11",
+          "81",
+          "54",
           "57",
-          "28",
+          "91",
           "47",
           "67",
-          "00",
           "16",
-          "60",
           "79",
           "01",
           "09",
           "10",
+          "19",
+          "25",
           "34",
           "63",
           "70"
         ]
       },
+      "n3": {
+        "title": "Dàn N3 (Dự phòng Ngày 3 - Max Khung)",
+        "date": "Chủ Nhật, 13-09-2026",
+        "date_short": "13/09/2026",
+        "count": 36,
+        "win_rate": "87.50%",
+        "stake_ratio": "4.8x (Gấp thếp: 480k/số)",
+        "description": "Dự phòng cho Chủ Nhật, 13-09-2026 nếu cả N1 và N2 trượt. Max Khung.",
+        "numbers": [
+          "21",
+          "44",
+          "38",
+          "83",
+          "39",
+          "23",
+          "96",
+          "42",
+          "13",
+          "17",
+          "18",
+          "33",
+          "43",
+          "45",
+          "61",
+          "72",
+          "78",
+          "37",
+          "87",
+          "11",
+          "81",
+          "68",
+          "80",
+          "54",
+          "57",
+          "91",
+          "47",
+          "67",
+          "16",
+          "79",
+          "01",
+          "09",
+          "10",
+          "19",
+          "25",
+          "34"
+        ]
+      },
       "dual_frame_options": {
         "option_continue_old": {
           "title": "Lựa chọn A: Đánh Dàn N1 MỚI ngày tiếp theo",
-          "desc": "Đánh Dàn N1 mới cho ngày Thứ Tư, 09-09-2026."
+          "desc": "Đánh Dàn N1 mới cho ngày Thứ Sáu, 11-09-2026."
         },
         "option_start_new_n1": {
           "title": "Lựa chọn B: Lọc Dàn VIP Top 20 Đồng Thuận",
@@ -1014,28 +1014,26 @@
           "title": "Lựa chọn C: ĐÁNH GIAO THOA TIẾT KIỆM VỐN",
           "desc": "Tập hợp các con số giao thoa giữa N1 và Top 20.",
           "numbers": [
-            "44",
-            "39",
-            "23",
-            "72",
-            "66",
-            "87",
-            "57",
-            "96",
-            "83",
-            "33",
-            "68",
-            "80",
-            "78",
-            "38",
             "17",
-            "37",
-            "13",
-            "61",
+            "72",
+            "83",
+            "39",
+            "38",
+            "11",
+            "44",
+            "96",
             "21",
+            "78",
+            "18",
+            "23",
+            "45",
+            "87",
+            "33",
+            "61",
+            "37",
+            "42",
             "43",
-            "26",
-            "18"
+            "13"
           ]
         }
       }
@@ -1046,185 +1044,185 @@
       "eliminated_sample": [
         [
           "01",
-          "Extreme Gan (57 days > 45)"
+          "Extreme Gan (58 days > 45)"
         ],
         [
           "02",
-          "Extreme Gan (245 days > 45)"
+          "Extreme Gan (246 days > 45)"
         ],
         [
           "03",
-          "Extreme Gan (81 days > 45)"
+          "Extreme Gan (82 days > 45)"
         ],
         [
           "04",
-          "Extreme Gan (72 days > 45)"
+          "Extreme Gan (73 days > 45)"
         ],
         [
           "05",
-          "Extreme Gan (90 days > 45)"
+          "Extreme Gan (91 days > 45)"
         ],
         [
           "06",
-          "Extreme Gan (153 days > 45)"
+          "Extreme Gan (154 days > 45)"
         ],
         [
           "07",
-          "Extreme Gan (245 days > 45)"
+          "Extreme Gan (246 days > 45)"
         ],
         [
           "08",
-          "Extreme Gan (88 days > 45)"
+          "Extreme Gan (89 days > 45)"
         ],
         [
           "12",
-          "Extreme Gan (124 days > 45)"
+          "Extreme Gan (125 days > 45)"
         ],
         [
           "14",
-          "Extreme Gan (85 days > 45)"
+          "Extreme Gan (86 days > 45)"
         ]
       ]
     },
     "top_3d": [
       {
         "cang": "Càng 0",
+        "number_3d": "021",
+        "base_2d": "Đề 21",
+        "consensus_score": 44.1,
+        "classification": "MẠNH"
+      },
+      {
+        "cang": "Càng 2",
+        "number_3d": "221",
+        "base_2d": "Đề 21",
+        "consensus_score": 44.1,
+        "classification": "MẠNH"
+      },
+      {
+        "cang": "Càng 4",
+        "number_3d": "421",
+        "base_2d": "Đề 21",
+        "consensus_score": 44.1,
+        "classification": "MẠNH"
+      },
+      {
+        "cang": "Càng 5",
+        "number_3d": "521",
+        "base_2d": "Đề 21",
+        "consensus_score": 44.1,
+        "classification": "MẠNH"
+      },
+      {
+        "cang": "Càng 7",
+        "number_3d": "721",
+        "base_2d": "Đề 21",
+        "consensus_score": 44.1,
+        "classification": "MẠNH"
+      },
+      {
+        "cang": "Càng 0",
+        "number_3d": "044",
+        "base_2d": "Đề 44",
+        "consensus_score": 44.1,
+        "classification": "MẠNH"
+      },
+      {
+        "cang": "Càng 2",
+        "number_3d": "244",
+        "base_2d": "Đề 44",
+        "consensus_score": 44.1,
+        "classification": "MẠNH"
+      },
+      {
+        "cang": "Càng 4",
+        "number_3d": "444",
+        "base_2d": "Đề 44",
+        "consensus_score": 44.1,
+        "classification": "MẠNH"
+      },
+      {
+        "cang": "Càng 5",
+        "number_3d": "544",
+        "base_2d": "Đề 44",
+        "consensus_score": 44.1,
+        "classification": "MẠNH"
+      },
+      {
+        "cang": "Càng 7",
+        "number_3d": "744",
+        "base_2d": "Đề 44",
+        "consensus_score": 44.1,
+        "classification": "MẠNH"
+      },
+      {
+        "cang": "Càng 0",
         "number_3d": "038",
         "base_2d": "Đề 38",
-        "consensus_score": 43.2,
+        "consensus_score": 44.1,
         "classification": "MẠNH"
       },
       {
         "cang": "Càng 2",
         "number_3d": "238",
         "base_2d": "Đề 38",
-        "consensus_score": 43.2,
+        "consensus_score": 44.1,
         "classification": "MẠNH"
       },
       {
         "cang": "Càng 4",
         "number_3d": "438",
         "base_2d": "Đề 38",
-        "consensus_score": 43.2,
+        "consensus_score": 44.1,
         "classification": "MẠNH"
       },
       {
         "cang": "Càng 5",
         "number_3d": "538",
         "base_2d": "Đề 38",
-        "consensus_score": 43.2,
+        "consensus_score": 44.1,
         "classification": "MẠNH"
       },
       {
         "cang": "Càng 7",
         "number_3d": "738",
         "base_2d": "Đề 38",
-        "consensus_score": 43.2,
+        "consensus_score": 44.1,
         "classification": "MẠNH"
       },
       {
         "cang": "Càng 0",
         "number_3d": "083",
         "base_2d": "Đề 83",
-        "consensus_score": 43.2,
+        "consensus_score": 44.1,
         "classification": "MẠNH"
       },
       {
         "cang": "Càng 2",
         "number_3d": "283",
         "base_2d": "Đề 83",
-        "consensus_score": 43.2,
+        "consensus_score": 44.1,
         "classification": "MẠNH"
       },
       {
         "cang": "Càng 4",
         "number_3d": "483",
         "base_2d": "Đề 83",
-        "consensus_score": 43.2,
+        "consensus_score": 44.1,
         "classification": "MẠNH"
       },
       {
         "cang": "Càng 5",
         "number_3d": "583",
         "base_2d": "Đề 83",
-        "consensus_score": 43.2,
+        "consensus_score": 44.1,
         "classification": "MẠNH"
       },
       {
         "cang": "Càng 7",
         "number_3d": "783",
         "base_2d": "Đề 83",
-        "consensus_score": 43.2,
-        "classification": "MẠNH"
-      },
-      {
-        "cang": "Càng 0",
-        "number_3d": "039",
-        "base_2d": "Đề 39",
-        "consensus_score": 43.2,
-        "classification": "MẠNH"
-      },
-      {
-        "cang": "Càng 2",
-        "number_3d": "239",
-        "base_2d": "Đề 39",
-        "consensus_score": 43.2,
-        "classification": "MẠNH"
-      },
-      {
-        "cang": "Càng 4",
-        "number_3d": "439",
-        "base_2d": "Đề 39",
-        "consensus_score": 43.2,
-        "classification": "MẠNH"
-      },
-      {
-        "cang": "Càng 5",
-        "number_3d": "539",
-        "base_2d": "Đề 39",
-        "consensus_score": 43.2,
-        "classification": "MẠNH"
-      },
-      {
-        "cang": "Càng 7",
-        "number_3d": "739",
-        "base_2d": "Đề 39",
-        "consensus_score": 43.2,
-        "classification": "MẠNH"
-      },
-      {
-        "cang": "Càng 0",
-        "number_3d": "023",
-        "base_2d": "Đề 23",
-        "consensus_score": 43.2,
-        "classification": "MẠNH"
-      },
-      {
-        "cang": "Càng 2",
-        "number_3d": "223",
-        "base_2d": "Đề 23",
-        "consensus_score": 43.2,
-        "classification": "MẠNH"
-      },
-      {
-        "cang": "Càng 4",
-        "number_3d": "423",
-        "base_2d": "Đề 23",
-        "consensus_score": 43.2,
-        "classification": "MẠNH"
-      },
-      {
-        "cang": "Càng 5",
-        "number_3d": "523",
-        "base_2d": "Đề 23",
-        "consensus_score": 43.2,
-        "classification": "MẠNH"
-      },
-      {
-        "cang": "Càng 7",
-        "number_3d": "723",
-        "base_2d": "Đề 23",
-        "consensus_score": 43.2,
+        "consensus_score": 44.1,
         "classification": "MẠNH"
       }
     ]
@@ -1234,9 +1232,9 @@
       "status": "MODERATE",
       "risk_level": "MEDIUM",
       "confidence": 0.78,
-      "composite_volatility": 2.72,
-      "std_head": 2.24,
-      "std_sum": 3.19
+      "composite_volatility": 2.78,
+      "std_head": 2.38,
+      "std_sum": 3.18
     },
     "staking_recommendation": {
       "bankroll": 10000000,
@@ -1246,22 +1244,16 @@
       "risk_level": "MEDIUM"
     },
     "backtest_metrics": {
-      "total_days_tested": 244,
+      "total_days_tested": 245,
       "n1_hits": 105,
-      "n1_win_rate": 43.03,
-      "n2_win_rate_estimate": 58.09,
-      "n3_win_rate_estimate": 68.85,
+      "n1_win_rate": 42.86,
+      "n2_win_rate_estimate": 57.86,
+      "n3_win_rate_estimate": 68.57,
       "starting_bankroll": 10000000,
-      "final_bankroll": -14100000,
-      "max_drawdown_percent": 229.36,
-      "sharpe_ratio": 0.72,
+      "final_bankroll": -14500000,
+      "max_drawdown_percent": 233.03,
+      "sharpe_ratio": 0.73,
       "daily_results_summary": [
-        {
-          "date": "Thứ sáu ngày 28-08-2026",
-          "actual_de": "68",
-          "hit": false,
-          "bankroll": -13300000
-        },
         {
           "date": "Thứ bảy ngày 29-08-2026",
           "actual_de": "37",
@@ -1315,6 +1307,12 @@
           "actual_de": "87",
           "hit": false,
           "bankroll": -14100000
+        },
+        {
+          "date": "Thứ năm ngày 10-09-2026",
+          "actual_de": "81",
+          "hit": false,
+          "bankroll": -14500000
         }
       ]
     }
